@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+
+				var e = document.getElementById("box");
+				document.onkeydown = function(evt) {
+					var e = evt || window.event;
+
+					//console.log(e.keyCode); //a: 65, 左上右下:37,38,39,40
+
+					var top1 = numFromStr(box.style.top);
+
+					var left1 = numFromStr(box.style.left);
+
+					if(e.keyCode == 37) {
+						box.style.left = (left1 - 5) + "px";
+					} else if(e.keyCode == 38) {
+						box.style.top = (top1 - 5) + "px";
+					} else if(e.keyCode == 40) {
+						box.style.top = (top1 + 5) + "px";
+					} else if(e.keyCode == 39) {
+						box.style.left = (left1 + 5) + "px";
+					}
+				}
+			}
+
+			function numFromStr(str) { //去掉单位“px”的函数
+				var index = str.indexOf("px");
+				var num = Number(str.substring(0, index)); //截取字符串
+				return num;
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div id="box" style="width: 200px;height: 200px;background: red;position: absolute;top: 100px;left: 200px;"></div>
+	</body>
+
+</html>

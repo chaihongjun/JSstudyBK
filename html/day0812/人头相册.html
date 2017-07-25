@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body, ul, li {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: magenta;
+			}
+			ul {
+				list-style: none;
+			}
+			#box {
+				width: 265px;
+				padding: 10px;
+				background: white;
+				margin: 0 auto;
+				overflow:  hidden;
+				border-radius: 5px;
+				margin-top: 20px;
+			}
+			#box li {
+				float:  left;
+				width: 50px;
+				height: 50px;
+				margin: 3px 3px 0 0;
+			}
+			#box .first {
+				width: 156px;
+				height: 156px;
+			}
+			#box .first img {
+				width: 156px;
+				height: 156px;			
+			}
+			
+		</style>
+		<script>
+		
+			window.onload = function(){
+				
+				var fir = document.getElementById("first");
+				var imgs = document.getElementsByTagName("img");
+					for(i=0;i<imgs.length;i++){
+						imgs[i].index=i;											
+						imgs[i].onmouseover=function(){
+						fir.innerHTML = "<img src=img/small_"+this.index+".jpg/>";
+						
+						}
+					}		
+			}
+			
+
+		</script>
+	</head>
+	<body>
+		<ul id="box">
+			
+			<li id="first" class="first">
+				<img src="img/big_4.jpg" height="156"/>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_1.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_2.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_3.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_4.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_5.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_6.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_7.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_8.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_9.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_10.jpg" /></a>
+			</li>
+			
+			<li>
+				<a href="#"><img src="img/small_11.jpg" /></a>
+			</li>
+		
+		
+		</ul>
+		
+	</body>
+</html>

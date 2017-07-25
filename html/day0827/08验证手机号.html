@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		/*
+		var pattern = /^\d+/mg; //启用了换行模式
+		var str = '1.baidu\n2.google\n3.bing';
+		
+		var result = str.replace(pattern, '#');
+		alert(result);
+		*/
+		/*//删除收尾空格
+		var str = " ss  kkk   ";
+		var ss = str.replace(/^\s+/,"");
+		var st = ss.replace(/\s+$/,"");
+		alert(st.length);
+		alert(st);
+		*/
+		//验证手机号
+		window.onload = function(){
+			var inp = document.getElementById("inp_id");
+			var btn = document.getElementById("btn");
+			
+			btn.onclick  = function(){
+				
+				var str = /^1[3|5|7|8]\d{9}$/;
+				var ss = inp.value;
+				var s = str.test(ss);
+				if (s == true) {
+					console.log(ss);
+				} else{
+					console.log("手机号有误！");
+				}
+			}
+			
+		}
+		
+		</script>
+		
+	</head>
+	<body>
+		<form>
+			<input type="text" value="13516721535" id="inp_id" />
+			<input type="button" id="btn" value="按钮" />
+		</form>
+	</body>
+</html>

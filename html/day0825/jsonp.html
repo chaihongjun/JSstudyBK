@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li{list-style: none;}
+			ol>li{float: left; border: 1px solid #ccc;margin-right:10px; padding:6px;cursor: pointer;}
+			.checked{ background: magenta; color:white;}
+
+		</style>
+		<script>
+			var p=1; //全局变量，表示当前是第几页的数据
+			
+			//jsonp方式获取数据后所执行的回调函数
+			function callback(obj){
+				//显示内容
+				var list = obj.list;
+				var ul=document.getElementsByTagName("ul")[0];
+				ul.innerHTML = "";
+				for (var i=0;i<list.length;i++) {
+					var li=document.createElement("li");
+					li.innerHTML=list[i].id;
+					ul.appendChild(li);
+				}
+				
+				//显示页码
+				var pageMax = obj.pageMax;
+				var ol=document.getElementsByTagName("ol")[0];
+				ol.innerHTML = "";
+				for (var i=1;i<=pageMax;i++) {
+					var li=document.createElement("li");
+					li.innerHTML=i;
+					// 给每一页绑定单击事件
+					li.onclick = function(){
+						p=this.innerText;  //p表示当前为第几页
+						page();  //获取p页的数据，获取成功后会执行callback函数
+					}
+					
+					ol.appendChild(li);
+					if(i==p){
+						li.className = "checked"; 	//当前页高亮显示
+					}
+				}	
+			}
+			
+			
+			
+			//页面载入成功后，显示第一页数据
+			window.onload = function(){
+				page();
+			}
+			
+			
+			//jsonp方式获取数据
+			function page(){
+				var url="http://10.17.152.166:8096/loadMore/index.aspx?p="+p;
+				var script=document.createElement("script");
+				script.src=url;
+				document.getElementsByTagName("head")[0].appendChild(script);
+
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul></ul>
+		<ol></ol>
+	</body>
+</html>

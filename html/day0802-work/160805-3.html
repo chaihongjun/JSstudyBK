@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script language="JavaScript" type="text/javascript">
+			
+			/*
+			数组是一种数据类型！
+			一维数组的定义:
+			创建数组：
+			在JavaScript中，数组可以使用Array构造函数来创建，或使用[]快速创建，这也是首选的方法。
+			数组是继承自Object的原型，并且他对typeof没有特殊的返回值，他只返回'object';
+			
+			
+			var arr= new Array(10); //创建一个包含 10 个元素的数组，没有赋值
+			document.write(arr); //输出为：,,,,,,,,,  --->(没有数据则系统默认用逗号来分隔！)
+			
+			var arr2= new Array(“芙蓉姐姐”,30);//使用构造数组创建
+			//输出为：10,芙蓉姐姐
+			
+			var arr3 = [1,2,3,4,5]; //创建一个包含5个元素的数组，并给每个元素分别赋值为1,2,3,4,5
+			*/
+			
+			
+			/*
+			var arr = new Array(10,"芙蓉姐姐");
+			document.write(arr);
+			*/
+			
+			
+			/*
+			使用数组元素；
+		    arr[0]:表示数组的第一个元素，0是下标，也叫索引
+		    arr[1]:表示数组的第二个元素，1是下标
+		    ……
+			*/
+			
+			
+			/*
+			数组的长度（length属性）：
+			      数组元素的个数
+			
+			数组的下标：
+			    下标就是索引，即元素的序号，从0开始，下标最大取值是：长度-1；
+			    下标可以是变量或表达式。
+			*/
+			
+			/*
+			 Math.random(); //返回介于 0 ~ 1 之间的一个随机数。
+			 */
+			/*
+			var arr = new Array();
+			
+			for(var i=0;i<3;i++){
+			 arr[i] = Math.random();
+		    }
+			document.write(arr);
+			*/
+			/*有错误！
+			var arr = new Array();
+			
+			for(var i=0;i<3;i++){
+			  arr[i] = i*i;
+		    }
+			var arr = [1,2,3];
+			document.write(arr);
+			/*
+			 遍历数组:
+			 
+			(1)普通for循环
+			for(var i=0; i<5; i++){
+			        document.write(arr[i]);
+				}
+				
+			(2)for each循环
+			for(var i in arr){
+			        document.write(arr[i]);
+			}
+			*/
+			/*
+			var arr6 = [1, 2, 3, 4, 5, 6];
+			 for(var i in arr6) {
+			 	document.write(arr6[i]);
+			 }
+			*/
+			/*
+			 求数组中所有元素的和；
+			求一组数的最大数和最小数
+			 */
+			/*
+			var arr = [1,2,3,4,5,6]
+			var sum=0;
+			for (var i=0;i<=arr.length-1;i++) {
+				sum += arr[i];
+			}
+			document.write(sum);
+			*/
+			/*
+			var arr = [1,2,3,4,5,6]
+			var max=0;
+			var min=0;
+			
+			for (var i=0;i<=arr.length-1;i++) {
+//				if (max < arr[i]) {
+//					max=arr[i];
+//				}
+				if (max < arr[i]) {
+					var t;
+					t=max;
+					max=arr[i];
+					arr[i]=t;
+			}
+				if (min > arr[i]) {
+					min=arr[i];
+				}
+			}
+			
+			document.write(max+"  ");
+			document.write(min);
+			
+			*/
+			/*
+			 冒泡排序:
+			 输入6个无序的数字，从头到尾依次比较相邻两个数字大小，若大数在前、小数在后，则交换两数位置，
+			 依次比较，使全部数据按从小到大排列
+
+			var arr = [8, 9, 3, 4, 6, 2, 5, 7];
+		
+			for (var i=0; i<arr.length-1; i++) {//最多要冒泡7次
+				for (var j=0; j < arr.length-1-i; j++) {//每次里面已经有i个变量固定在结尾了
+					if (arr[j] > arr[j+1]) {
+						var temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+					}
+				}
+			}
+			alert(arr);
+			
+			
+			 */
+		
+			
+			
+			/*
+			 	常用函数:
+			 	(1)追加元素：
+					arr.push(‘BeiJing’); //数组末尾添加一个元素，也可以添加多个
+					在数组后面添加一个或多个元素,并返回数组长度
+				
+					var arr = [1,2,3,4,5];
+					str = arr.push(6,3,4)
+					
+					document.write(str);
+					
+					//arr.push(7,8,9);
+					//alert(arr);
+			*/	
+					
+					
+		       /*		
+		        (4)删除元素
+			    var str = arr.pop();   //移除末尾一个元素，并返回该元素
+			    
+			    
+				(2)插入元素：
+				   arr.unshift(‘TJ’); //数组开头添加一个元素，也可以添加多个  ;  并返回数组长度
+						   
+		        (3) arr.shift();
+			    	alert(arr);	 
+				//在数组前面删除一个元素,并返回该元素
+				//没有参数，一次只能删一个
+				
+				(3)指定位置插入元素：
+				   arr.splice(2, 0, ‘three’); //在数组下标为2的位置插入three
+				
+				(6)
+				// 截(截取)
+				// slice(start, [end])从原数组起始位置start开始，到终止位置end结束但不包含end, 返回一个新的结果，不影响原来的结果
+			
+				arr.slice(1,3);
+				alert(arr);//不影响原来
+				alert(arr.slice(1,3));
+				alert(arr.slice(0));//不传第二个参数，表示从start位置开始，截取到最后
+				*/
+				
+				
+	        	/*
+				(5)合并两个数组 - concat() //concat()方法用于连接两个或多个数组拼接后生成一个新的数组，对原数组没有影响;
+				
+				//拼(拼接)
+				//concat()方法用于连接两个或多个数组拼接后生成一个新的数组，对原数组没有影响
+		
+				var arr = [1,2,3,4,5,6,7];
+				alert(arr.concat(1));
+				alert(arr.concat(1,6));
+				var arr1 = [8,8,8];
+				var arr2 = [9,9,9];
+				alert(arr.concat(arr1));
+				alert(arr.concat(arr1,arr2));
+				alert(arr.concat(arr1,6));
+	        	*/
+				
+				/*
+				(6)用数组的元素组成字符串 - join() 
+				//join("拼接符")将数组转成字符串，中间以拼接符连接,不传参数默认,连接
+				
+				var arr = [1,2,3,4,5];
+				
+				var str = arr.join();
+				var str = arr.join("-");
+				var str = arr.join("");
+				alert(str);
+				*/
+				
+				
+				/*
+				(7)文字数组 - sort() 
+				(8)数字数组 - sort() 
+			    */
+				
+				
+				
+				/*冒泡排序：简单方法！
+				
+				var arr = Array(9,8,7,6,5,4,3,2,1);
+				
+				for (var i=0;i<=arr.length-2;i++) {
+					for (j=0;j<=arr.length-2-i;j++) {
+						if (arr[j]>arr[j+1]) {
+							var temp;
+							temp=arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=temp;
+						}
+					}
+				}
+				document.write(arr);
+			
+				*/
+				
+				
+				
+				
+				
+				
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">点我</button>
+		
+		<script type="text/javascript">
+			 window.onload = function() {
+			 	var btn = document.getElementById("btn");
+			 	// js中给同一元素绑定多个相同事件处理函数时，会执行最后面的事件处理函数，上面的直接不执行，打断点看
+			 	btn.onclick = function() {
+			 		alert("aaa");
+			 	}
+			 	//一个页面只能出现一次，出现多次，只有最后一次起作用
+			 	btn.onclick = function() {
+			 		alert("bbb");
+			 	}
+			 }
+		</script>
+	</body>
+</html>

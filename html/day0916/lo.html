@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+		$(".a").each(function(index, element) {
+			var li=$(this);
+			console.log(li.children().length);
+			
+	        li.children("a").click(function(e) {
+	            //只隐藏不显示的话：li.children("ul").hide();
+	            li.children(".ul").toggle();
+	        });
+	    });
+	})
+	
+	</script>
+</head>
+
+<body>
+<ul>
+	
+	<li class="a">
+		<a href="#">基本设置</a>
+    	<ul class="ul">
+        	<li><a href="#">扩展字段</a></li>
+        	<li><a href="#">扩展字段</a></li>
+        	<li><a href="#">扩展字段</a></li>
+        </ul>
+    </li>
+    
+	<li class="a">
+		<a href="#">组别管理</a>
+    	<ul class="ul">
+        	<li><a href="#">添加</a></li>
+        	<li><a href="#">修改</a></li>
+        	<li><a href="#">删除</a></li>
+        </ul>
+    </li>
+    
+    <li class="a">
+    	<a href="#">组别管理</a>
+    	<ul class="ul">
+        	<li><a href="#">添加</a></li>
+        	<li><a href="#">修改</a></li>
+        	<li><a href="#">删除</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

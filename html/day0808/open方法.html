@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>open()方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//open() 方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。
+			//语法：window.open(URL,name,features,replace)
+			//features	一个可选的字符串，声明了新窗口要显示的标准浏览器的特征。如果省略该参数，新窗口将具有所有标准特征。在窗口特征这个表格中，我们对该字符串的格式进行了详细的说明。
+			//replace 一个可选的布尔值。规定了装载到窗口的 URL 是在窗口的浏览历史中创建一个新条目，还是替换浏览历史中的当前条目。支持下面的值：true - URL 替换浏览历史中的当前条目。false - URL 在浏览历史中创建新的条目。
+			
+			
+			//在空白处打开自己制定的网页！ 默认_blank在空白页打开、如果是_parent: 则在本页面打开, 如果是_blank则是在新窗口中打开
+			
+			//关闭小窗口
+//			var openNewframe = window.open("index.html","name","width=800, height=300, top=300, left=300");
+//			//延时关闭
+//			setTimeout(function(){
+//				openNewframe.close();
+//			},2000);
+			
+			
+			
+			//打开一个新窗口，并控制其外观
+			window.open("http://www.baidu.com","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400")
+			
+			
+			//重要事项：请不要混淆方法 Window.open() 与方法 Document.open()，这两者的功能完全不同。为了使您的代码清楚明白，请使用 Window.open()，而不要使用 open()。
+			
+		</script>
+	</body>
+</html>

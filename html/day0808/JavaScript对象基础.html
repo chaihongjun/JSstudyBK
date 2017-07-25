@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript对象</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//值:变量
+	//对象也叫做变量
+	//name变量和xiangruding值 赋值给obj变量。（其他相同）
+	var obj = {
+		name:"诸葛相如",
+		age:"24",
+		height:"180cm",
+		weight:"150g",
+		form:"贵州省黔东南州苗猪侗族自治州凯里市",
+		familyAddress:"山东省青岛市市南区香港中路128号",
+		like:function(){
+			var a=123,b=456,c;
+				c=a+b;
+			return c;
+		},
+		hobby:"play basketball"
+	}
+	
+	//.的形式访问key值
+	//document.write("姓名："+obj.name+"<br />年龄："+obj.age+"<br />来自："+obj.form+"<br />居住地址："+obj.familyAddress);
+	console.log("姓名："+obj.name+"\n年龄："+obj.age+"\n来自："+obj.form+"\n居住地址："+obj.familyAddress);
+	console.log("================================");
+	
+	//[]的形式获取key值
+	console.log("姓名："+obj["name"]+"\n年龄："+obj["age"]+"\n来自："+obj["form"]+"\n居住地址："+obj["familyAddress"]);
+	console.log("================================");
+	
+	//for in 来便利对象
+	for (var i in obj) {  
+	    console.log(i+":"+obj[i]);  
+	}
+	console.log("================================");
+	console.log("================================");
+	
+	//执行对象中的函数
+	console.log("执行函数(加括号)的结果：\n"+obj.like());
+	console.log("================================");
+	console.log("执行函数(不加括号)的结果：\n"+obj.like);
+	
+	
+	console.log("================================");
+	var obj = new  Object();
+	obj['aaa']="bbb";
+	var key="aaa";
+	console.log(obj.aaa);
+	console.log(obj[key]);
+</script>

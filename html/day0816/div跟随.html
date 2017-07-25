@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title> div跟随 </title>
+		<style>
+			body{
+				overflow: hidden;
+			}
+			div {
+				width: 10px;
+				height: 10px;
+				background: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+		</style>
+		
+		<script>
+			// 获取行内样式 style标签里面的样式   用对象.style.样式名
+			// 获取非行内样式 window.getComputedStyle(对象, 伪类)  window可以省略
+			// getComputedStyle(box, null).width  获取box对象的非行内width属性,也可以获取行内  只能获取
+			// 设置还得使用id.style.background="#EE2C21";
+			// 低版本ie非行内样式   对象.currentStyle.样式名
+			// element.currentStyle? element.currentStyle.height : window.getComputedStyle(element, null)).height
+			window.onload = function() {
+				var i=0;
+				var oDivs = document.getElementsByTagName("div");
+				document.onmousemove = function(evt) {
+					// var e = evt || window.event;
+					// var oDivs = document.getElementsByTagName("div");
+					// for(var i=oDivs.length-1; i>0; i--) {
+					// 	oDivs[i].style.left = window.getComputedStyle(oDivs[i-1], null).left;
+					// 	oDivs[i].style.top = window.getComputedStyle(oDivs[i-1], null).top;
+					// }
+					// oDivs[0].style.left = e.clientX + "px";
+					// oDivs[0].style.top = e.clientY + "px";
+					
+					var e = evt || window.event;
+					oDivs[i % oDivs.length].style.display = "block";
+					oDivs[i % oDivs.length].style.left = e.clientX + "px";
+					oDivs[i % oDivs.length].style.top = e.clientY + "px";
+					i++;
+					
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		 <div id="div" style="color: green;"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div> 
+	</body>
+
+</html>

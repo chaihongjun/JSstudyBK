@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+				window.onload = function(){
+					
+					var bof = document.getElementById("audio1");
+					var btn1 = document.getElementById("btn1");
+					var btn2 = document.getElementById("btn2");
+					
+					var span1 = document.getElementById("span1");
+					var span2 = document.getElementById("span2");
+					var flag = false;
+					var lastLrc = "";
+					
+				/*
+					setInterval(function(){
+						if (flag) {   //点击按钮时flag=true；执行if语句。
+							//span1.innerHTML = Number(span1.innerHTML)+1;  //span1.innerHTML的值每秒加一
+							//var lrc = obj[span1.innerHTML]; //获取对象中的值（也即是冒号（：）后边的内容）
+							
+							var s = Math.floor(bof.currentTime);
+							span1.innerHTML = s;
+							
+							if (lrc == undefined) {
+								lrc = lastLrc;
+							}else{
+								lastLrc = lrc; //第一次先执行的lastLrc，将第一秒出现的歌词赋给变量lastLrc；(即为作为上一次的歌词)
+							}
+							span2.innerHTML = lrc;  //将span2中的内容换成当前歌词
+							
+							
+							//if ( lrc != undefined) {
+								//span2.innerHTML = lrc;
+							//}
+
+
+						}
+					},1000);
+				*/
+				
+				
+				//不用定时器实现play和pause事件！
+				//在mus这个对象上绑定一个 进度发生改变时 的事件，内容为在标题栏上显示 当前进度和总进度，只是显示
+				//如果不用setInterval，可以在这个事件中写相应的显示歌词的代码
+
+				bof.addEventListener("timeupdate",function(){
+					//document.title = bof.currentTime+"/"+bof.duration;
+					
+					
+					/*
+					if (flag) {   //点击按钮时flag=true；执行if语句。
+//							span1.innerHTML = Number(span1.innerHTML)+1;  //span1.innerHTML的值每秒加一
+//							var lrc = obj[span1.innerHTML]; //获取对象中的值（也即是冒号（：）后边的内容）
+							
+//							var s = Math.floor(bof.currentTime);
+//							span1.innerHTML = s;
+							
+							if (lrc == undefined) {
+								lrc = lastLrc;
+							}else{
+								lastLrc = lrc; //第一次先执行的lastLrc，将第一秒出现的歌词赋给变量lastLrc；(即为作为上一次的歌词)
+							}
+							span2.innerHTML = lrc;  //将span2中的内容换成当前歌词
+							
+							
+							//if ( lrc != undefined) {
+								//span2.innerHTML = lrc;
+							//}
+
+
+						}
+					*/
+					
+				});
+				bof.addEventListener("play",function(){
+					span1.innerHTML = "音乐播放了！";
+				});
+				bof.addEventListener("pause",function(){
+					span1.innerHTML = "音乐已暂停！";
+				});
+				
+				
+					btn1.onclick = function(){
+						flag= true;
+						bof.play();
+					}
+					btn2.onclick = function(){
+						flag= false;
+						bof.pause();
+					}
+					
+						
+					var str = '[00:00.26]有借有还 - 陈伟霆,[00:01.92]电影《扎职》主题曲,[00:04.25]词：张楚翘,[00:05.32]曲：伍乐城,[00:07.62]越受害越学会自卫,[00:10.57]还望一朝可得势,[00:14.96]任何事凭着我一手一脚,[00:18.68]拼命为填胃,[00:22.49]要讽刺无谓对我吠从未肯跪低,[00:29.31]积怨的那位 会将我眨到底,[00:33.26]去理会亦无谓,[00:37.00]万大事未尽信命运,[00:39.94]沉着开火不手震,[00:43.97]任何事能做到不拖不欠,[00:48.25]过活没遗憾,[00:51.57]撑过去无谓再放任 流汗都认真,[00:58.54]想到亲我的 和维护爱人友人,[01:02.71]别浑噩下半生,[01:05.93]仍是有血有泪有借有还朋友吗,[01:09.69]伴我天生天养出走追寻自我吧,[01:13.30]喜欢每日怨命抱头流泪吗,[01:16.90]怨下去 还是看天下,[01:20.46]无退路以我有义靠你有情来去马,[01:24.33]别再问谁人虚假,[01:27.90]豁出心态上了战场,[01:30.08]牺牲一切也由它,[01:34.78]时日太快 世界太嘈,[01:37.42]天的洗礼我不怕,[01:53.84]滴着汗像步上绝地,[01:56.81]成就摧毁都不理,[02:00.94]掘头路成就我不挠不折,[02:05.13]退后便无味,[02:08.74]要对抗时代那势利 从未懂自卑,[02:15.51]反正都会死 从来未 退离撤离,[02:19.80]在末日未怕死,[02:22.77]仍是有血有泪有借有还朋友吗,[02:26.54]伴我天生天养出走追寻自我吧,[02:30.21]喜欢每日怨命抱头流泪吗,[02:33.74]怨下去 还是看天下,[02:37.34]无退路以我有义靠你有情来去马,[02:41.25]别再问谁人虚假,[02:44.82]豁出心态上了战场,[02:47.07]牺牲一切也由它,[02:51.66]时日太快 世界太嘈,[02:54.27]天的洗礼我不怕,[03:03.09]伤我不要紧 来日换我犹有余刃,[03:08.03]做大事要狠,[03:12.31]前路有爱有恨有勇有谋还有你,[03:16.09]伴我天生天养出走追寻没顾忌,[03:19.65]讲真每日怨命抱头无道理,[03:23.23]我共你从未会走避,[03:26.60]无退路以我有义靠你有情才有戏,[03:30.73]乱世下顽强不死,[03:34.40]带伤的我会变更强,[03:36.52]翻身只有这时机,[03:40.80]时日太快 世界太嘈,[03:43.89]只等一句了不起';
+					
+					var arr = str.split(",[");
+					var obj = {};
+					
+					for (var i=0;i<arr.length;i++) {
+						var col = arr[i].split("]");
+						var s = getSecond(col[0].replace("[",""));
+						var txt = col[1];
+						//console.log(s +" : "+ txt);
+						obj[s] = txt;
+					}
+					//console.log( obj );
+					
+					function getSecond(t){
+						var a1 = t.split(":");
+						var mm = a1[0];
+						var ss = a1[1].split(".")[0];
+						return mm*60+Number(ss);
+					}
+				}
+				
+		</script>
+	</head>
+	<body>
+		
+		<audio id="audio1" src="yjyh.mp3" controls="controls" ></audio>
+		<span id="span1">-1</span><br />
+		<span id="span2"></span><br />
+		
+		<input type="button" value="播放" id="btn1" />
+		<input type="button" value="暂停" id="btn2" />
+		
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动</title>
+		<style>
+			 #callboard { height:30px; line-height:30px; overflow:hidden;border: 1px solid #ccc;}
+			 #callboard ul { padding:0;}
+			 #callboard li { padding:0;}
+		</style>
+	</head>
+	<body>
+		
+		<div id="callboard">
+			<ul>
+			     <li>
+			         <a href="http://www.qianduanzu.com/2012042036.html">公告：前端组主题正在整理中..有需要用的朋友请留个言，以方便及时通知！</a>
+			     </li>
+			     <li>
+			         <span style="color:red;">公告：前端组上线一个月零八天，PR升为3，BD权重1</span>
+			     </li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script>
+			 //第二版：Newton改造
+			 (function (win){
+			      var callboarTimer;
+			      var callboard = $('#callboard');
+			      var callboardUl = callboard.find('ul');
+			      var callboardLi = callboard.find('li');
+			      var liLen = callboard.find('li').length;
+			      var initHeight = callboardLi.first().outerHeight(true);
+			  
+			     win.autoAnimation = function (){
+			         if (liLen <= 1) return;
+			         var self = arguments.callee;
+			         var callboardLiFirst = callboard.find('li').first();
+			         callboardLiFirst.animate({
+			             marginTop:-initHeight
+			         }, 500, function (){
+			             clearTimeout(callboarTimer);
+			             callboardLiFirst.appendTo(callboardUl).css({marginTop:0});
+			             callboarTimer = setTimeout(self, 5000);
+			         });
+			     }
+			
+			     callboard.mouseenter(
+			         function (){
+			             clearTimeout(callboarTimer);
+			         }).mouseleave(function (){
+			             callboarTimer = setTimeout(win.autoAnimation, 2000);
+			         });
+			 }(window));
+			 
+			 setTimeout(window.autoAnimation, 2000);
+		</script>
+	</body>
+</html>

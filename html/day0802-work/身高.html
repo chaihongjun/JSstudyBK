@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var height = parseInt( prompt('请输入一个身高：') );
+			var weight = parseInt( prompt('请输入一个体重(g)：') );
+		
+			
+				
+			var weight2 = (height-108)*2;
+			
+			var max = weight2 + 10;
+			var min = weight2 - 10;
+			
+		
+			if (weight <= max &&weight >= min) {
+				alert('输入的身高为:'+height+'   输入的体重为:'+weight+'   \n标准值为:'+weight2+'您的体重为合格标准!'+';    '+'你的体重在'+max+'和'+min+'之间.');
+			} else{
+				alert('输入的身高为:'+height+'    输入的体重为:'+weight+'  \n标准值为:'+weight2+';    '+'您的体重为不合格标准!   '+'你的体重不在'+max+'和'+min+'之间.');
+			}
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

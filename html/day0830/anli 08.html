@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			function demo(_name){
+				this.name=_name;
+			}
+			
+			alert(demo.prototype);
+			*/
+			/*
+			function P(_userName){
+				this.username = _userName;
+			}
+			
+			function C(_passWord){
+				this.password = _passWord;
+			}
+			
+			//把P的所有属性和方法赋值给C的原型上，使C具备P的属性和方法
+			C.prototype=new P("uxxxx");
+			
+			var c=new C("P");
+			alert(c) //object
+			alert(c.username);
+			*/
+			
+			/*
+			function P(_userName , _age){
+				this.username = _userName;
+				this.age = _age;
+			}
+			
+			function C(_userName, _age, _passWord){
+				//call使用父类函数的call（子类对象,参数1，参数2，参数3......） 最常见
+				//P.call(this,_userName,_age);  //数据以逗号隔开来传输参数 （与下一行实现一样的效果）
+				
+				//apply使用父类函数的apply（子类对象，[参数1，参数2，参数3]）
+				P.apply(this,[_userName,_age]);  //数据以(中括号)[]包裹来传输参数
+				
+				this.password = _passWord;
+			}
+			
+			var c=new C("Pbbbbb","2345","2345678765432");
+			
+			alert(c.username);
+			alert(c.age);
+			alert(c.password);
+			*/
+			
+			
+			/*//统计字符串的数量
+			var str = "aasdsdfghjyqwerttqwerasdasdasdffgqwer";
+			var obj={};
+			var arr = str.split("");
+			for (var i=0;i<arr.length;i++ ) {
+				if (obj[arr[i]]==undefined) {
+					obj[arr[i]] = 1;
+				} else{
+					obj[arr[i]] += 1;
+				}
+			}
+			console.log(obj);
+			*/
+	
+	
+			/*
+			String.prototype.tongji=function(){
+				var str = this;
+				var obj={};
+				var arr = str.split("");
+				for (var i=0;i<arr.length;i++ ) {
+					if (obj[arr[i]]==undefined) {
+						obj[arr[i]] = 1;
+					} else{
+						obj[arr[i]] += 1;
+					}
+				}
+				return obj;
+			}
+			console.log("aasdsdfghjyqwerttqwerasdasdasdffgqwer".tongji());
+			*/
+			
+			/*
+			Array.prototype.tongj=function(){
+				return this.length;
+			}
+			alert([1,2,3,4,5].tongj())
+			*/
+			
+			/*
+			var a=[098,4,65,2];
+			function p(a){
+				return a.length;
+			}
+			alert(p(a));
+			*/
+			
+			
+			var a=1;
+			function p(a){
+				alert(a);
+			}
+			
+			p(); //underfine
+			p(a); //1
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

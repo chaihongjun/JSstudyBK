@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>cookie 账号和密码</title>
+		<script type="text/javascript" src="js/mian.js" ></script>
+		<script>
+			
+			window.onload = function(){
+				
+				var zhanghao = document.getElementById("zhanghao");
+				var password1 = document.getElementById("password");
+				var denglu = document.getElementById("denglu");
+				var qingkong = document.getElementById("qingkong");
+				
+				//获取账号和用户名的value值
+				zhanghao.value = getCookie("zhanghao");
+				password1.value = getCookie("password1");
+				
+				
+				//点击登录按钮时创建一个cookie值；
+				denglu.onclick = function(){
+					setCookie("zhanghao",zhanghao.value);
+					setCookie("password1",password1.value);
+				}
+				
+				//点击清空按钮时 将账号和密码的value值清空；
+				qingkong.onclick = function(){
+					zhanghao.value = "" ;
+					password1.value = "" ;
+				}
+				
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<form>
+			账号：<input type="text" value="" id="zhanghao" />
+			<br /><br />
+			密码：<input type="password" value="" id="password" />
+			<br /><br />
+			
+			<input type="button" value="登录" id="denglu" />
+			<input type="button" value="清空" id="qingkong" />
+			<br /><br />
+			<br /><br />
+			<a href="chakanform.html">查看账号和密码</a>
+		</form>
+		
+	</body>
+</html>

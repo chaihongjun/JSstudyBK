@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 只能是行内样式才起作用（需要寻找为什么外部样式不起作用的解决的办法！！！！）
+			#div1{
+				width: 400px;
+				height: 400px;
+				background: #aaa;
+				position: relative;
+				left: 100px;
+				top: 100px;
+				overflow: hidden;
+			}
+			#div2{
+				width: 20px;
+				height: 20px;
+				background: red;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			*/
+			
+		</style>
+		<script type="text/javascript">
+			
+			window.onload = function(){
+				var div1 = document.getElementById("div1"); 
+				
+				var div2 = document.getElementById("div2"); 
+				var div3 = document.getElementById("div3"); 
+				
+				var temX = 3;
+				var temY = 1;
+				var temXX = 1;
+				var temYY = 10;
+				
+				setInterval(function(){
+					if (numFromStr(div2.style.width)+numFromStr(div2.style.left) >= numFromStr(div1.style.width)) {
+						temX *= -1; //当小盒子和left值和width>=大盒子的宽时 取反。 
+					}
+					if (numFromStr(div2.style.left) <= 0) {
+						temX *= -1;
+					}
+					if (numFromStr(div2.style.height)+numFromStr(div2.style.top) >= numFromStr(div1.style.height)) {
+						temY *= -1;  
+					}
+					if (numFromStr(div2.style.top) <= 0) {
+						temY *= -1;
+					}
+					
+					if (numFromStr(div3.style.width)+numFromStr(div3.style.left) >= numFromStr(div1.style.width)) {
+						temXX *= -1; //当小盒子和left值和width>=大盒子的宽时 取反。 
+					}
+					if (numFromStr(div3.style.left) <= 0) {
+						temXX *= -1;
+					}
+					
+					if (numFromStr(div3.style.height)+numFromStr(div3.style.top) >= numFromStr(div1.style.height)) {
+						temYY *= -1; //当小盒子和left值和width>=大盒子的宽时 取反。 
+					}
+					
+					if (numFromStr(div3.style.top) <= 0) {
+						temYY *= -1;
+					}
+					
+					div2.style.left = numFromStr(div2.style.left) + temX + "px";
+					div2.style.top = numFromStr(div2.style.top) + temY + "px";
+					
+					div3.style.left = numFromStr(div3.style.left) + temXX + "px";
+					div3.style.top = numFromStr(div3.style.top) + temYY + "px";
+					
+				},10)
+			}
+			
+			function numFromStr(str){
+				var index = str.indexOf("px");
+				var num = Number(str.substring(0,index));
+				return num;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="width: 400px;
+				height: 400px;
+				background: #aaa;
+				position: relative;
+				left: 100px;
+				top: 100px;
+				overflow: hidden;">
+			<div id="div2" style="width: 20px;
+				height: 20px;
+				background: red;
+				position: absolute;
+				top: 1px;
+				left: 1px;">
+			</div>
+			<div id="div3" style="width: 20px;
+				height: 20px;
+				background: blue;
+				position: absolute;
+				top: 1px;
+				left: 1px;">
+			</div>
+		</div>
+	</body>
+</html>

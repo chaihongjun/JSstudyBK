@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>鼠标拖拽移动</title>
+		<script type="text/javascript" src="js/mian.js" ></script>
+		<script>
+			
+			window.onload = function() {
+				var oBox = document.getElementById("box");
+				var x = getCookie("x");
+				var y = getCookie("y");
+
+				if (x) {
+					//如果cookie中存在x,y的值(不是第一次运行)
+					oBox.style.left = x + "px";
+					oBox.style.top = y + "px";
+				}
+				//鼠标按下
+				oBox.onmousedown = function(evt) {
+					var e = evt || window.event;
+					var disX = e.offsetX;
+					var disY = e.offsetY;
+					
+					//鼠标移动
+					document.onmousemove = function(evt) {
+						var e = evt || window.event;
+						oBox.style.left = e.clientX - disX + "px";
+						oBox.style.top = e.clientY - disY + "px";
+					}
+					
+					//鼠标松开
+					oBox.onmouseup = function() {
+						document.onmousemove = null;
+						oBox.onmouseup = null;
+						
+						//保存最后松开时的x,y偏移量
+						setCookie("x", oBox.offsetLeft, 7);
+						setCookie("y", oBox.offsetTop, 7);
+					}
+				}
+				
+			}
+		
+			
+		</script>
+	</head>
+	<body>
+		<div id="box" style="width: 100px; height: 100px; background: red; position: absolute;"></div>
+	</body>
+</html>

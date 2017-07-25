@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>统计字符串字母大小写以及数字个数</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+		var bi=0;
+		var sm=0;
+		var num=0;
+		function bi_sm(str){
+			for (var i=0;i<=str.length-1;i++) {
+				if (str[i]>="A" && str[i]<="Z") {
+					bi++;
+				}else if (str[i]>="a" && str[i]<="z") {
+					sm++;
+				}else if(str[i]>="0" && str[i]<="9") {
+					num++;
+				}
+			}
+		}
+		var str = "ASSDDFGHRasdfghjk123456";
+		bi_sm(str);
+		document.write("大写字母个数："+bi+"<br />小写字母个数："+sm+"<br />数字个数："+num);
+	}
+</script>

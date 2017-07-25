@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>局部 变量的累加</title>
+		<script>
+			function a(){
+				var num=1;
+				return function(){
+					return num++;
+				}
+			}
+			
+			var b= a();
+			
+			console.log(b());
+			console.log(b());
+			console.log(b());
+			console.log(b());
+			console.log(b());
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数的自运行</title>
+		<script>
+			
+			//(function (){alert(2)})();
+			(function (){alert(3)}());
+			/*
+			~function (){alert("0000000")}();
+			!function (){alert("1000000")}();
+			+function (){alert("2000000")}();
+			-function (){alert("3000000")}();
+			*/
+			
+			alert(9+function(){return 5;}());   //14
+			alert(9+function(x){return 10+x;}(10));  //自运行函数可以传参数  //29
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

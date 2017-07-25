@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script>
+			function setCookie(name, value, expires, path, domain, secure) {
+				var cookieText = encodeURIComponent(name)+"="+encodeURIComponent(value);
+				if(expires instanceof Date) {
+					cookieText += "; expires=" + expires;
+				}
+				if(path) {
+					cookieText += "; path="+ path;
+				}
+				if(domain) {
+					cookieText += "; domain="+ domain; 
+				}
+				if(secure) {
+					cookieText += "; secure"
+				}
+				document.cookie = cookieText;
+				return decodeURIComponent(document.cookie);
+			}
+			var oDate = new Date();
+			oDate.setDate(oDate.getDate()+7);
+			console.log(setCookie("carts3", "333" , oDate));
+
+			function afterDay(num) {
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate()+num);
+				return oDate;
+			}
+			
+			
+			// "carts=111; carts1=222; carts3=333; carts4=444"
+			// var cookie = "carts=111; carts1=222; carts3=333; carts4=444";
+			// var name = "carts3";
+			// var nameIndex = cookie.indexOf(name);
+			// var valueIndex = nameIndex + name.length + 1;
+			// var valueEnd = cookie.indexOf(";", nameIndex);
+			// var value = cookie.substring(valueIndex, valueEnd)
+
+
+			function getCookie(name) {
+				var cookie = decodeURIComponent(document.cookie);
+				var nameIndex = cookie.indexOf(name+"=");
+				if(nameIndex != -1) {
+					var valueIndex = nameIndex + name.length + 1;
+					var valueEnd = cookie.indexOf(";", nameIndex);
+					if(valueEnd == -1) {
+						return cookie.substring(valueIndex);
+					}
+					return cookie.substring(valueIndex, valueEnd)
+				}
+				return "";
+			}
+			console.log(getCookie("carts"));
+
+
+			//============
+			function setCookie(name, value, num) {
+				var cookieText = encodeURIComponent(name)+"="+encodeURIComponent(value);
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate()+num);
+
+				cookieText += "; expires=" + oDate;
+				document.cookie = cookieText;
+			}
+
+			// "carts=111; carts1=222; carts3=333; carts4=444"
+			function getCookie(name) {
+				var cookies = decodeURIComponent(document.cookie);
+				var arr = cookies.split("; ");
+				for(var i=0; i<arr.length; i++) {
+					var arr1 = arr[i].split("=");
+					if(arr1[0] == name) {
+						return arr1[1];
+					}
+				}
+				return "";
+			}
+			function removeCookie(name) {
+				setCookie(name, "" , -1)
+			}
+			removeCookie("user");
+
+			//==========
+
+			function removeCookie(name) {
+				setCookie(name, "" , afterDay(-1))
+			}
+			removeCookie("carts");
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

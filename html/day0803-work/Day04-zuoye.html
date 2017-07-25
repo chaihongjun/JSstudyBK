@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+
+			/*
+			var sum1=1;
+			function sum(){
+					for(var i=0;i<=arguments.length-1;i++){
+						sum1 *= arguments[i];
+					}
+					document.write(sum1);
+			}
+			sum(1,2,3,4,5);
+			*/
+			
+			/*
+			var sum1=0;
+			function sum(a,b){
+				var n = prompt("输入一个字符：");
+					if(n=="+"){
+						sum1= a+b;
+						document.write(sum1);
+					}else if (n=="-") {
+						sum1= a-b;
+						document.write(sum1);
+					} else if (n=="*") {
+						sum1= a*b;
+						document.write(sum1);
+					} else if (n=="/") {
+						sum1= a/b;
+						document.write(sum1);
+					} 
+			}
+			var x,y;
+			x = parseInt(prompt("输入一个数字x："));
+			y = parseInt(prompt("输入一个数字y："));
+			sum(x,y);
+			*/
+			
+			/*
+			var jiechrng = function(n){
+				if (n==1) {
+					return 1;
+				} else{
+					return n*jiechrng(n-1);
+				}
+			}
+			x = parseInt(prompt("请输入一个数x 求该数的阶乘："));
+			jiechrng(x);
+			document.write(jiechrng(x));
+			*/
+			
+			
+			function chengJi() {
+				s = 1;
+				for(var i=0; i<arguments.length; i++){
+					s = s * arguments[i];
+				}
+				document.write(s);
+			}
+			chengJi(1,2,3,4);
+		
+		
+					
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

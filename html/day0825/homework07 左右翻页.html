@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>左右分页</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			#fir{width: 880px;height: 200px;border: 1px solid #ccc;margin: 0 auto;}
+			
+			#div{float: left; width:800px;height: 200px;overflow: hidden; position: relative;}
+			
+			ul{width:3200px;height: 200px; position: absolute;left: 0px;top: 0px;}
+			
+			li{float: left; list-style: none;}
+			li>img{width: 200px;height: 200px;display: block;}
+			
+		</style>
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		<script>
+			window.onload = function(){
+				
+				var imgs1 = document.getElementById("imgs1");
+				var imgs2 = document.getElementById("imgs2");
+				
+				var ul = document.getElementById("ul");
+				
+				var now=0;
+				imgs2.onclick = function(){
+					now++;
+					if (now>3) {now=0;}
+					//ul.style.left=-800*now+"px";
+					startMove(ul,{left:-800*now});
+				}
+				imgs1.onclick = function(){
+					now--;
+					if (now<0) {now=3;}
+					//ul.style.left=-800*now+"px";
+					startMove(ul,{left:-800*now});
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="fir">
+			<span id="imgs1" style="float: left;width: 40px;height: 200px;line-height: 200px;"> <img src="imgs/j1.png" /></span>
+			<div id="div">
+				<ul id="ul">
+					<li><img src="imgs/vb.jpg" /> </li>
+					<li><img src="imgs/fd.jpg" /> </li>
+					<li><img src="imgs/hhj.jpg" /> </li>
+					<li><img src="imgs/nb.jpg" /> </li>
+					<li><img src="imgs/po.jpg" /> </li>
+					<li><img src="imgs/q.jpg" /> </li>
+					<li><img src="imgs/rr.jpg" /> </li>
+					<li><img src="imgs/rt.jpg" /> </li>
+					<li><img src="imgs/rtd.jpg" /> </li>
+					<li><img src="imgs/sd.jpg" /> </li>
+					<li><img src="imgs/tr.jpg" /> </li>
+					<li><img src="imgs/ty.jpg" /> </li>
+					<li><img src="imgs/cx6.jpg" /> </li>
+					<li><img src="imgs/cx7.jpg" /> </li>
+					<li><img src="imgs/cx8.jpg" /> </li>
+					<li><img src="imgs/cx9.jpg" /> </li>
+				</ul>
+			</div>
+			<span id="imgs2"  style="float: right;width: 40px;height;200px;line-height: 200px;" > <img src="imgs/j2.png" /></span>
+		</div>
+		<div style="width: 882px;height: 30px;background: maroon;margin: 0 auto;"></div>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+//			
+//			var obj = {
+//				
+//				a:1,
+//				b:2,
+//				c:3,
+//				"a1":"aaaa",
+//				
+//				"s":{
+//					s1:11,
+//					s2:22
+//				}
+//			}
+			
+//			alert(obj.s.s1);
+			//var b="b";
+			//alert(obj[b]);
+			//alert(obj["s"].s2);
+			
+			var obj = {
+					"北京":["东城区","西城区","海淀区","昌平区"],
+					"上海":["宝山区","浦东区"],
+					"天津":["西青区","南开区","塘沽区"]
+				}
+			
+			window.onload = function(){
+				
+				var se1 = document.getElementById("sel1");
+				var sel2 = document.getElementById("sel2");
+				
+				for (var i in obj) { //遍历对象obj，obj有多少个属性酒便利多少次！
+					//console.log( i +" : "+obj[i]);
+					sel1.options.add( new Option(i,i)); //给sel1添加新项！
+				}
+			
+			
+			
+			
+			se1.onchange = function(){
+				fn(this.value);
+			}
+			
+			fn(se1.value);
+			
+			
+			function fn(v){
+				
+				sel2.length = 0;
+				var arr=obj[v];
+				for (var i=0;i<arr.length;i++) {
+					sel2.options.add(new Option( arr[i] , arr[i] ));
+				}
+			}
+			
+			
+			
+		}
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<select id="sel1"> 
+			
+		</select>
+		<select id="sel2"> 
+			
+		</select>
+		
+	</body>
+</html>

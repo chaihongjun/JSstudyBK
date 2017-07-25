@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			function dian(){
+				var date1 = new Date();
+				document.write(date1);
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<button type="button" onclick="dian()">点我看时间</button>
+		
+		<div id="div1">
+		<p id="p1">这是一个段落。</p>
+		<p id="p2">这是另一个段落。</p>
+		</div>
+		
+		<script>
+		var para=document.createElement("p");
+		var node=document.createTextNode("这是新段落。");
+		para.appendChild(node);
+		
+		var element=document.getElementById("div1");
+		element.appendChild(para);
+		
+		</script>
+
+	</body>
+</html>

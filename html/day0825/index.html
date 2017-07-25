@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			img{width: 350px;}
+			div{width: 350px;border: 1px solid #ccc;position: absolute;left: 0px;top: 1px;}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+<script>
+	var json = {
+		"list":[
+			{src:"img/1.jpg",title:"苹果"},
+			{src:"img/2.jpg",title:"香蕉"},
+			{src:"img/3.jpg",title:"桃"},
+			{src:"img/4.jpg",title:"橘子"},
+			{src:"img/5.jpg",title:"梨"},
+			{src:"img/6.jpg",title:"软柿子"},
+			{src:"img/7.jpg",title:"西瓜"},
+			{src:"img/8.jpg",title:"哈密瓜"},
+			{src:"img/9.jpg",title:"菠萝菠萝蜜"},
+			{src:"img/10.jpg",title:"葡萄"},
+			{src:"img/11.jpg",title:"樱桃"},
+			{src:"img/12.jpg",title:"杨梅"},
+			{src:"img/13.jpg",title:"猕猴桃"},
+			{src:"img/14.jpg",title:"火龙果"},
+			{src:"img/15.jpg",title:"荔枝"},
+			{src:"img/1.jpg",title:"苹果"},
+			{src:"img/2.jpg",title:"香蕉"},
+			{src:"img/3.jpg",title:"桃"},
+			{src:"img/4.jpg",title:"橘子"},
+			{src:"img/5.jpg",title:"梨"},
+			{src:"img/6.jpg",title:"软柿子"},
+			{src:"img/7.jpg",title:"西瓜"},
+			{src:"img/8.jpg",title:"哈密瓜"},
+			{src:"img/9.jpg",title:"菠萝菠萝蜜"},
+			{src:"img/10.jpg",title:"葡萄"},
+			{src:"img/11.jpg",title:"樱桃"},
+			{src:"img/12.jpg",title:"杨梅"},
+			{src:"img/13.jpg",title:"猕猴桃"},
+			{src:"img/14.jpg",title:"火龙果"},
+			{src:"img/15.jpg",title:"荔枝"},
+			{src:"img/1.jpg",title:"苹果"},
+			{src:"img/2.jpg",title:"香蕉"},
+			{src:"img/3.jpg",title:"桃"},
+			{src:"img/4.jpg",title:"橘子"},
+			{src:"img/5.jpg",title:"梨"},
+			{src:"img/6.jpg",title:"软柿子"},
+			{src:"img/7.jpg",title:"西瓜"},
+			{src:"img/8.jpg",title:"哈密瓜"},
+			{src:"img/9.jpg",title:"菠萝菠萝蜜"},
+			{src:"img/10.jpg",title:"葡萄"},
+			{src:"img/11.jpg",title:"樱桃"},
+			{src:"img/12.jpg",title:"杨梅"},
+			{src:"img/13.jpg",title:"猕猴桃"},
+			{src:"img/14.jpg",title:"火龙果"},
+			{src:"img/15.jpg",title:"荔枝"},
+			{src:"img/15.jpg",title:"荔枝"}
+		]
+	}
+	
+	var body = document.body;
+	var arr = json.list;
+	
+	for (var i=0;i<arr.length;i++) {
+		var obj = arr[i];
+		
+		var div = document.createElement("div");
+		body.appendChild(div);
+		
+		var img = document.createElement("img");
+		img.src = obj.src;
+		div.appendChild(img);
+		
+		var pNode = document.createElement("p");
+		pNode.innerHTML =i+" "+ obj.title;
+		div.appendChild(pNode);
+	}
+	
+	window.onload=function(){
+		pbl();pbl();
+	}
+	window.onresize=function(){
+		pbl();
+	}
+	
+	function pbl(){
+		var arrDiv = document.getElementsByTagName("div");
+		var winWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		//alert(winWidth);
+		var divWidth = arrDiv[0].offsetWidth;
+		var num = Math.floor(winWidth/divWidth);
+		
+		
+		var dis = (winWidth-divWidth*num)/(num+1);
+		
+		var posi = [];
+		for (var i=0;i<num;i++) {
+			posi[i]={
+				x:(divWidth+dis)*i+dis,
+				y:20
+			}
+		}
+		
+		var space = 20;
+		var index=0;
+		for (var i=0;i<arrDiv.length;i++) {
+			var div=arrDiv[i];
+			
+			index=getIndex();//求高度最小的窗口的下标
+			
+			var obj = posi[index];
+			div.style.left = obj.x+"px";
+			div.style.top = obj.y+"px";
+			
+			posi[index].y +=div.offsetHeight+space;
+		}
+
+
+
+		//求高度最小的窗口的下标
+		function getIndex(){
+			var min=posi[0].y;	//假设min是最小的那个窗口的高度值
+			var index=0;	//记录最小高度值窗口的索引
+			for(var j=0; j<posi.length; j++){	//遍历窗口
+				if(min>posi[j].y){	
+					min=posi[j].y;
+					index=j;
+				}
+			}
+			return index;
+		}	
+	}
+	
+	
+</script>

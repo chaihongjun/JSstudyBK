@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			var obj={
+				name:"hhhh",
+				age:122345,
+				fangfa:function(){
+					alert(obj.name+","+obj.age);
+				}
+			}
+			obj.fangfa();
+			obj.name = "kkkkkkk"; 
+			obj.fangfa();
+			
+			var objxx = obj;
+			objxx.fangfa();
+			*/
+			
+			
+			var str = new Object();
+			str.name = "mmmmmm";
+			str.age = 67890;
+			str.fn = function(){
+				alert(str.name+" , "+str.age);
+			}
+			str.fn();
+			var ss= str;
+			ss.fn();
+			alert(ss.name);
+			alert(ss.age);
+		
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

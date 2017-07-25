@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dd">0</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//实现数字每隔一秒加1；
+	window.onload = function(){
+		var as = document.getElementById("dd");
+		var i=1;
+		setInterval(function(){
+			if (i<=5) {
+				as.innerHTML = i++;
+			}
+		},1000);
+		//清楚计时器
+		clearInterval(as);
+	}
+</script>

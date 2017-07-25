@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>图片放大镜</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				list-style: none;
+				width: 800px;
+				height: 172px;
+				margin: 10px auto;
+			}
+			
+			li {
+				float:  left;
+				width: 170px;
+				height: 170px;
+				cursor: pointer;
+				border: 1px solid #ddd;
+				margin: 0 10px;
+			}
+			
+			/*li包含的class=active的标签样式*/
+			li.active {
+				border: 1px solid #a00;
+			}
+			li img {
+				width: 170px;
+				height: 170px;
+				vertical-align: top;
+			}
+			#big {
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				border: 2px solid #ddd;
+				display: none;
+			}
+		</style>
+		<script>
+		
+			window.onload = function() {
+				var oLis = document.getElementsByTagName("li");
+				var big = document.getElementById("big");
+				var bImg = big.getElementsByTagName("img")[0];
+				
+				for(var i=0; i<oLis.length; i++) {
+					
+					oLis[i].onmouseover = function(evt) {
+						var e = evt || window.event;
+						this.className = "active";
+						big.style.display = "block";
+						//src获取的是绝对路径   getAttribute("src")相对路径
+						bImg.src = this.firstChild.src.replace(".jpg","_big.jpg");
+					}
+					oLis[i].onmousemove = function(evt) {
+						var e = evt || window.event;
+						big.style.left = e.clientX + 20 + "px";
+						big.style.top = e.clientY + 20 + "px";
+					}
+					oLis[i].onmouseout = function(evt) {
+						this.className = "none";
+						
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="img/shirt_1.jpg" alt=""></li>
+				<li><img src="img/shirt_2.jpg" alt=""></li>
+				<li><img src="img/shirt_3.jpg" alt=""></li>
+				<li><img src="img/shirt_4.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div id="big">
+			<div id="big_img">
+				<img src="img/shirt_1_big.jpg" alt="">
+			</div>
+		</div>
+	</body>
+
+</html>

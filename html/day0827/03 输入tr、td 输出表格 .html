@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			td{width: 50px;height: 30px;border: 1px solid #ccc;}
+		</style>
+		<script>
+			window.onload = function(){
+				var table = document.getElementById("table");
+				var num1 = prompt("输入一个tr：");
+				var num2 = prompt("输入一个td：");;
+				for (var i=0;i<num1;i++) {
+					var tr = document.createElement("tr");
+					table.appendChild(tr);
+					
+					for (var j=0;j<num2;j++) {
+						var td = document.createElement("td");
+						td.innerHTML = "kkk";
+						tr.appendChild(td);
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table id="table">
+			
+		</table>
+	</body>
+</html>

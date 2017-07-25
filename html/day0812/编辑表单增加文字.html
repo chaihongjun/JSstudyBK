@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function() {
+				var oTds = document.getElementsByTagName("td");
+				for(var i=0; i<oTds.length; i++) {
+					oTds[i].index = i;
+					oTds[i].onclick = function() {
+						var str = this.innerHTML;
+						this.innerHTML = "";
+						var oInput = document.createElement("input");
+						oInput.type = "text";
+						oInput.value = str;
+						this.appendChild(oInput);
+						oInput.focus();
+						oInput.onblur = function() {
+							//oInput.outHTML = this.value;
+							var str1 = this.value;
+							oTds[this.parentNode.index].innerHTML = str1;
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td>你好</td>
+				<td>我好</td>
+				<td>大家好</td>
+			</tr>
+		</table>
+	</body>
+</html>

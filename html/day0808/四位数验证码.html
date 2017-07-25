@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生成四位数的验证码</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	function yanCode(){
+		var str = "";
+		for (var i=0;i<4;i++) {
+			var gaiLv = Math.random();
+			
+			if (gaiLv < 0.5) {
+				str+=parseInt((Math.random()*10));
+			} else {
+				str += String.fromCharCode(parseInt(Math.random()*26+97));
+			}
+		}
+		return str;
+	}
+	document.write(yanCode());
+	
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--第一种直接添加在html中-->
+		<a href="" onclick="javascript:history.back();">aaa</a>
+		<a href="" onclick="history.back()">bbb</a>
+		
+		
+		<!--第二种使用JavaScriptfunction的办法实现-->
+		<div onclick="back()">ccc</div>
+		<div onclick="backs()">ddd</div>
+		
+		<!------------>
+		<script type="text/javascript">
+			
+			function back() {
+				history.back(); //返回上一条历史记录
+			}
+			
+			function backs(){
+				javascript:window.history.go(-1);
+				return false;
+			}
+		</script>
+	</body>
+</html>

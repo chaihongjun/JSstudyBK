@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>求出1-1/2+1/3-1/4…..1/100的和</title>
+		<script>
+		var sum = 0;
+		var sum1 = 0;
+		var sum2 = 0;
+		var n=prompt("请输入一个数：",5);
+			for (var i=1;i<=n;i++) {
+				
+				if (i%2==0) {
+					sum1 += -1/i;
+				} else{
+					sum2 += 1/i;
+				}
+			}
+			document.write(parseFloat(sum1+sum2));
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小盒子Div额运动</title>
+		<style>
+			#div1{width: 40px;height: 40px;background: red;position: absolute;top: 0px;}
+			#line{width: 2px;height: 500px;background: blue;position: absolute;left: 500px;top: 0px;}
+			
+		</style>
+	</head>
+	<script>
+		window.onload =function(){
+			//var i=0;
+			var div1 = document.getElementById("div1");
+			
+			
+			/*
+			 *匀速运动
+			var timer = setInterval(function(){
+				//i++;
+				div1.style.left = parseInt(window.getComputedStyle(div1,null).left) + 5 + "px";
+				//div1.style.top = parseInt(window.getComputedStyle(div1,null).top) + 2.5 + "px";
+				if(parseInt(div1.style.left) == 460) {
+					clearInterval(timer);
+				}
+			},10);
+			*/
+			
+			
+			/*
+			//加速运动
+			var speed=1;
+			var timer = setInterval(function(){
+				div1.style.left = parseInt(div1.style.left)+ speed++ +"px";
+				if (parseInt(div1.style.left) >= 460) {
+					div1.style.left = 460+"px"; //当速度超过460px时让left值等于460px，才能固定下来最后的位置。
+					clearInterval(timer);
+				}
+			},50);
+			*/
+			
+			
+			
+			
+			/*
+			//减速运动
+			var start=0;
+			var end = 460;
+			var speed;
+			var timer = setInterval(function(){
+				start = parseInt(div1.style.left);
+				speed =(end-start)/10;  //除以一定的数字得到相对小的值，然后相加。
+				speed = Math.ceil(speed);
+				div1.style.left = start+speed+"px";
+				console.log(div1.style.left);
+				if (parseInt(div1.style.left) == end ) {
+					clearInterval(timer);
+				}
+			},60);
+			*/
+			
+			
+			//减速运动
+			
+			
+			var end = 0;
+			var timer = setInterval(function(){
+				var start = parseInt(div1.style.left);
+				var speed =(end-start)/10;  //除以一定的数字得到相对小的值，然后相加。
+				
+				speed = (speed>0) ? Math.ceil(speed) : Math.floor(speed);
+				
+				div1.style.left = start+speed+"px";
+				console.log(div1.style.left);
+				if (start == end ) {
+					clearInterval(timer);
+				}	
+			},60);
+			
+			
+			
+		}
+	</script>
+	<body>
+	
+		<div id="div1"  style="left: 450px"></div>
+		<div id="line"></div>
+		
+	</body>
+</html>

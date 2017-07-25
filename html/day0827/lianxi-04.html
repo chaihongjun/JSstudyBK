@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>三级菜单动画</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			ul>li{width: 100px;height: 30px;line-height: 30px; border: 1px solid #ccc;float: left;text-align: center;background: lightslategray;}
+			ul>li>ol{overflow: hidden;height: 0px;}
+			
+			ul>li>ol>li{background: lightblue;}
+			
+			ul>li>ol>li{position: relative;}
+			              
+			ul>li>ol>li>ol{position: absolute;left: 100px; top: 0px; width: 0px; height: 90px; overflow: hidden;}
+			ul>li>ol>li>ol>li{width: 100px;background: magenta;}
+			
+		</style>
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		<script>
+			window.onload = function(){
+				var tab = document.getElementsByTagName("ul")[0].children;
+				
+				//第二层
+				for (var i=0;i<tab.length;i++) {
+					tab[i].onmouseover = function(){
+						var ol = this.children[0];
+						//第三层
+						var aLi = ol.children;
+						startMove(ol,{height:aLi.length*30});
+						for (var j=0;j<aLi.length;j++) {
+							var li = aLi[j];
+							li.onmouseover = function(){
+								var ol = this.children[0];
+								this.parentNode.style.overflow="visible";//溢出部分撑开显示
+								startMove(ol,{width:100});
+							}
+							li.onmouseout = function(){
+								var ol = this.children[0];
+								startMove(ol,{width:0});
+							}
+						}
+					}
+					tab[i].onmouseout = function(){
+						var ol = this.children[0];
+						ol.style.overflow="hidden";//溢出部分隐藏
+						startMove(ol,{height:0});
+					}
+					
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1111
+				<ol>
+					<li>aaa
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>bbb
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>ccc
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+			<li>2222
+				<ol>
+					<li>aaa
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>bbb
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>ccc
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+			<li>3333
+				<ol>
+					<li>aaa
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>bbb
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+					<li>ccc
+						<ol>
+							<li>xxx</li>
+							<li>yyy</li>
+							<li>zzz</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ul>
+	</body>
+</html>

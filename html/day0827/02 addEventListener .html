@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				
+				var btn = document.getElementById("btn");
+				//btn.onclick = addEventListener("click",demo1,false);
+				//btn.onclick = addEventListener("click",demo2,false);
+				//btn.onclick = addEventListener("click",demo3,false);
+				//使用addEventListener("click",demo,false);来绑定事件不会发生覆盖。
+				
+				btn.onclick = function(){
+					alert("mmmm1");
+				}
+				btn.onclick = function(){
+					alert("mmmm2");
+				}
+				btn.onclick = function(){
+					alert("mmmm3");
+				}
+				//btn.onclick 绑定多个事件时会发生覆盖，不过一般实际应用中用的比较多！
+				
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+	</body>
+</html>

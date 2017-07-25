@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#mm{width: 200px;height: 150px;margin: 60px auto;border: 1px solid #ccc}
+	</style>
+	<script type="text/javascript" src="../js/main.js" ></script>
+	
+	<script>
+	/*
+		function setCookie(_name, _value, _date){
+			var d=new Date();
+			d.setDate(d.getDate()+_date);
+			document.cookie=_name+"="+encodeURIComponent(_value)+"; path=/; expires="+d.toGMTString();
+		}
+		function getCookie(_name){
+			var str=document.cookie;
+			var arr=str.split("; ");
+			for(var i=0; i<arr.length; i++){
+				var col=arr[i].split("=");	
+				if(col[0]==_name){
+					return decodeURIComponent(col[1]);
+				}
+			}
+			return "";
+		}
+	*/
+	
+	
+		window.onload=function(){	
+			document.getElementById("btn").onclick=function(){
+				var strName=document.getElementById("uName").value;
+				var strPass=document.getElementById("uPass").value;
+				
+				
+				if(getCookie("user_"+encodeURIComponent(strName))!=""){
+					alert("注册失败，用户名已被占用");
+				}else{
+					setCookie("user_"+encodeURIComponent(strName), strPass, 3650);
+					alert("注册成功");
+				}
+				
+			}
+			
+			document.getElementById("btn2").onclick=function(){
+				var strName=document.getElementById("uName").value;
+				var strPass=document.getElementById("uPass").value;	
+				
+				var cookiePwd=getCookie("user_"+encodeURIComponent(strName));
+				
+				if(cookiePwd==strPass && cookiePwd!=""){
+					alert("登陆成功");
+				}else{
+					alert("登陆失败");
+				}
+			}
+		}
+		
+		
+		
+		
+	</script>
+	</head>
+	<body>
+	
+		<div id="mm">
+			用户名：<input type="text" value="" id="uName" /><br>
+			密码：<input type="text" value="" id="uPass" /><br>
+			<input type="button" value="注册" id="btn" />
+			<input type="button" value="登陆" id="btn2" />
+		</div>
+		
+	
+	</body>
+</html>

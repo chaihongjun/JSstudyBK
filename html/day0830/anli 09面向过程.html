@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>面向过程-实例:鼠标拖拽</title>
+		<style type="text/css">
+			#div1{width: 300px;height: 300px;position: absolute;left: 0;top: 0; background: magenta;cursor: move;}
+			#div2{width: 200px;height: 200px;position: absolute;left: 0;top: 0;background: mediumspringgreen;cursor: move;}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div1"> 当div中有文字是可以使用阻止默认事件的方法让div中的文字不被选中</div>
+		<div id="div2"> </div>
+		<script>
+			darg(div1);
+			darg(div2);
+			
+			function darg(obj){
+				obj.onmousedown = function(event){
+					event=event||window.event;
+					var x=event.clientX-obj.offsetLeft;
+					var y=event.clientY-obj.offsetTop;	
+					
+					document.onmousemove = function(event){
+						event=event||window.event;
+						obj.style.left = event.clientX-x+"px";
+						obj.style.top = event.clientY-y+"px";
+					}
+					document.onmouseup = function(event){
+						document.onmousemove=null;
+						document.onmouseup=null;
+					}
+					return false; //阻止默认事件:让div中的文字不被选中
+				}
+			}
+		</script>
+	</body>
+</html>

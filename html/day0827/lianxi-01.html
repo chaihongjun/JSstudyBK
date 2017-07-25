@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格切换图片</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			#boxx{width: 402px;height: 402px;margin: 50px auto;}
+			td>img{width: 30px;height: 30px;border: 1px solid #ccc;}
+			img{width: 400px;height: 400px;}
+			#box{width: 400px;height: 400px;border: 1px solid #ccc;}
+			
+		</style>
+		<script>
+			window.onload = function(){
+				var Imgs = document.getElementsByTagName("img");
+				for (var i=0;i<Imgs.length;i++) {
+					Imgs[i].onclick = function(){
+						Imgs[0].src = this.src;    //让id为box的盒子的img变为当前点击的td下的img。
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="boxx">
+			<div id="box"><img src="cx/cx0.jpg" /> </div>
+			<table>
+				<tr>
+					<td><img src="cx/cx0.jpg" /> </td>
+					<td><img src="cx/cx1.jpg" /> </td>
+					<td><img src="cx/cx2.jpg" /> </td>
+					<td><img src="cx/cx3.jpg" /> </td>
+					<td><img src="cx/cx4.jpg" /> </td>
+					<td><img src="cx/cx5.jpg" /> </td>
+					<td><img src="cx/cx6.jpg" /> </td>
+					<td><img src="cx/cx7.jpg" /> </td>
+					<td><img src="cx/cx8.jpg" /> </td>
+					<td><img src="cx/cx9.jpg" /> </td>
+					<td><img src="cx/cx10.jpg" /> </td>
+					<td><img src="cx/psab.jpg" /> </td>
+				</tr>
+			</table>
+		</div>
+		
+	</body>
+</html>

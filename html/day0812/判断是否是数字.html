@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			
+				function fun3(){
+					//var ss = document.getElementById("box");
+					//ss.innerHTML = "我知道你是个好人！";
+					//ss.style.color = "blue";
+					var dd = document.getElementById("demo").value;
+					
+					if (dd==""||isNaN(dd)) {
+						alert("not number!");
+					}
+				}
+			
+		</script>
+	</head>
+	<body>
+		<div  id="box">判断是否是数字</div>
+		<input type="text" id="demo" />
+		
+		<button type="button" style="width: 50px;height: 30px;" onclick="fun3()"> 点我 </button>
+	</body>
+</html>

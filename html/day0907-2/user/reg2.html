@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+</style>
+<script>
+function setCookie(_name, _value, _date){
+	var d=new Date();
+	d.setDate(d.getDate()+_date);
+	document.cookie=_name+"="+encodeURIComponent(_value)+"; path=/; expires="+d.toGMTString();
+}
+function getCookie(_name){
+	var str=document.cookie;
+	var arr=str.split("; ");
+	for(var i=0; i<arr.length; i++){
+		var col=arr[i].split("=");	
+		if(col[0]==_name){
+			return decodeURIComponent(col[1]);
+		}
+	}
+	return "";
+}
+
+window.onload=function(){
+	var index=getCookie("uIndex");
+	if(index==""){
+		setCookie("uIndex", 1, 3650);
+		index=1;
+	}
+	
+	document.getElementById("btn").onclick=function(){
+		var strName=document.getElementById("uName").value;
+		var strPass=document.getElementById("uPass").value;		
+		var flag=false;
+		for(var i=1; i<=index; i++){
+			var str=getCookie("u_"+i);
+			var arr=eval(str);
+			if(arr[0]==strName){
+				flag=true;
+				break;
+			}
+		}
+		if(flag){
+			alert("注册失败");
+		}else{
+			alert("注册成功");
+			index++;
+			setCookie("u_"+index, "['"+strName+"','"+strPass+"']", 3650);
+			setCookie("uIndex", index, 3650);
+		}
+		
+	}
+	
+	document.getElementById("btn2").onclick=function(){
+		var strName=document.getElementById("uName").value;
+		var strPass=document.getElementById("uPass").value;		
+		var flag=false;
+		for(var i=1; i<=index; i++){
+			var str=getCookie("u_"+i);
+			var arr=eval(str);
+			if(arr[0]==strName && arr[1]==strPass){
+				flag=true;
+				break;
+			}
+		}
+		if(flag){
+			alert("登陆成功");
+		}else{
+			alert("登陆失败");
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+用户名：<input type="text" value="" id="uName" /><br>
+密码：<input type="text" value="" id="uPass" /><br>
+<input type="button" value="注册" id="btn" />
+<input type="button" value="登陆" id="btn2" />
+
+</body>
+</html>

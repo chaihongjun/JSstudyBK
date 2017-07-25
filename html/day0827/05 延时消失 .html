@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload =function(){
+//			
+				/*
+				 * 打开的窗口实现延时消失！
+				var aa = window.open("01 拖拽.html","phy","width=300, height=300, top=300, left=300");
+			
+					setTimeout(function(){
+						aa.close();
+					},2000);
+				*/
+				
+				//利用display：none；实现消失！
+				var div = document.getElementById("div");
+				setTimeout(function(){
+					div.style.display = "none";
+				},2000);
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div" style="width: 690px;height: 673px;background: magenta;margin: 80px auto;display: block;">
+			<img src="img/3fff.jpg" />
+		</div>
+	</body>
+</html>

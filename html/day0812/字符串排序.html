@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串排序</title>
+		<script>
+			var str = "sadfewfvczxc";
+			var str1 = str.split("");
+			//alert(str1);
+			for (var i=0;i<str1.length-1;i++) {
+				for (var j=0;j<str1.length-1-i;j++) {
+					if (str1[j]>str1[j+1]) {
+						var temp;
+						temp = str1[j];
+						str1[j] = str1[j+1];
+						str1[j+1] = temp;
+					} 
+				}
+			}
+			document.write(str1);
+			//alert(Math.max(str1));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

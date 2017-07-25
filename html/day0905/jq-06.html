@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>当鼠标放上去时，图片放大一定倍数，且有一个图层和描述文字</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{width: 400px;height: 400px;position: relative;border: 1px solid #CCCCCC;list-style: none;overflow: hidden;margin: 50px auto;}
+			
+			img{width: 400px;height: 400px;position: absolute;left: 0;top: 0;}
+			
+			p{width: 400px;height: 400px;background: aqua;position: absolute;left: 0px;top: 400px;opacity: .4;}
+			
+			span{width: 400px;height: 50px;position: absolute;left: 0;top: 400px;color: blue;}
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script>
+			$(function(){
+				
+				$("li").mouseenter(function(){
+					
+					var img = $(this).find("img");
+					var p = $(this).children("p");
+					var span = $(this).children().eq(2);
+					
+					img.stop().animate({
+						left:-50,
+						top:-50,
+						width:500,
+						height:500
+					});
+					p.stop().animate({
+						left:0,
+						top:0
+					});
+					
+					span.stop().animate({
+						left:0,
+						top:0
+					});
+				});
+				
+				
+				$("li").mouseleave(function(){
+					
+					var img = $(this).find("img");
+					var p = $(this).children("p");
+					var span = $(this).children().eq(2);
+					
+					img.stop().animate({
+						left:0,
+						top:0,
+						width:400,
+						height:400
+					});
+					p.stop().animate({
+						left:0,
+						top:400
+					});
+					
+					span.stop().animate({
+						left:0,
+						top:400
+					});
+				});
+					
+				
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<img src="img/nj.jpg" />
+				<p></p>
+				<span>内容</span>
+			</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box_id{
+				width: 400px;
+				height: 200px;
+				background: #000;
+				color: #fff;
+				text-align: center;
+				line-height: 150px;
+				font-size: 14px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				/*
+				//通过id获取节点元素
+				var box = document.getElementById("box_id");
+				
+				
+				console.log(box.style.fontSize)
+				console.log(box);                   //如果页面HTML还没有加载好, 得到的是null
+				console.log(box.tagName);           //tagName :标签名  
+				console.log(box.innerHTML);         //innerHTML :标签内容
+				
+				//box.id = "box_div2"; 
+				//console.log(box.id);
+				console.log(box.id);
+				console.log(box.title);
+				console.log(box.className);
+				console.log(box.style.fontSize);
+				console.log(box.innerHTML);
+				 
+				console.log(box.style);
+				  
+				box.style.color = "blue"; //把样式中的颜色改成了蓝色
+				console.log(box.style.color);
+				
+				box.style.background = "magenta";
+				console.log(box.style.background);
+				
+				box.className = "class2";
+				console.log(box.className);
+				box.className = box.className + " zzzw";
+				console.log(box.className);
+				*/
+				
+				
+				//通过元素名称tagName 获取节点元素
+				/*
+				var boox = document.getElementsByTagName("li");
+				//console.log(boox);
+				
+				//console.log(document.getElementsByTagName("ul").length);
+				
+				console.log(boox[0]);
+				console.log(boox.item(0));	
+				console.log(boox[0].tagName);
+				console.log(boox[0].innerHTML);
+				*/
+				
+				//通过name 获取节点元素
+				/*
+				var nana = document.getElementsByName("box_name");
+				console.log(nana);
+				console.log(nana[0]);
+				console.log(nana.item(0));
+				
+				console.log(nana[0].title);
+				console.log(nana[0].value);
+				console.log(nana[0].tagName);
+				console.log(nana[0].name);
+				
+				console.log(nana[1].innerHTML);
+				console.log(nana[2].value);
+				*/
+			
+			
+				/*
+				 * getAttribute() : 获取指定属性的值 
+				 * setAttribute() : 设置指定属性的值
+				 * removeAttribute() : 移除指定属性
+				 * */
+				
+				
+			    //var box = document.getElementById("box_id");
+			    
+				var naa = document.getElementById("nana");
+				console.log(nana);
+				console.log(naa.getAttribute("title"));
+				console.log(naa.className);
+				naa.removeAttribute("style");
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box_id">啊啊啊啊啊啊嗷嗷嗷啊啊啊啊啊啊啊啊</div>
+		
+		<div id="nana" title="属性节点" name="box_name" class="class1" style="font-size: 12px;">文本节点</div>
+		
+		<input type="text" name="box_name" title="属性节点1234"  value="通过name获取节点元素" />
+		<div name="box_name">测试DIV2</div>
+		<input type="text" name="box_name" value="text3456"/>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+</html>

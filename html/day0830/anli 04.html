@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload =function(){
+				
+				var btns  = document.getElementsByTagName("input");
+				
+				for (var i=0;i<btns.length;i++) {
+					var btn = btns[i];
+					//btn.index = i;  //等价于 btn.index = function(n){return n;}(i);
+					//btn.index = function(n){return n;}(i); //用函数来返回结果。
+					
+					btn.str = function(n){
+						return function(){
+							return n;
+						}
+					}(i);
+					
+					//下面的有错误
+					//等价于：(function(n){btn.str=n;})(i);
+					
+						//(function(n){btn.str=n;})(i);
+				
+					btn.onclick = function(){
+						//console.log(this.index);
+						//console.log(this.str); //返回一个function(即一个方法)
+						console.log(this.str());
+					}
+				}
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<input id="btn" type="button" value="0" />
+		<input id="btn" type="button" value="1" />
+		<input id="btn" type="button" value="2" />
+		<input id="btn" type="button" value="3" />
+		<input id="btn" type="button" value="4" />
+		
+	</body>
+</html>

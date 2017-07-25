@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0; padding: 0;}
+			div{
+				width: 10px;
+				height: 10px;
+				display: inline-block;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var box = [];
+			for (var i = 0; i < 30; i++){
+				box[i] = document.createElement('div');
+				box[i].style.display = 'none';
+				document.getElementsByTagName('body')[0].appendChild(box[i]);
+			}
+			var f = 0;
+			document.onmousemove = function(evt){
+				if(f == 30) f = 0;
+				var e = evt || window.event;
+				box[f].style.display = 'inline-block';
+				box[f].style.left = e.clientX+'px';
+				box[f].style.top = e.clientY+'px';
+				f++;
+			}
+		</script>
+	</body>
+</html>

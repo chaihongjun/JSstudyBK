@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>阻止右键并自定义右键菜单</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				list-style: none;
+			}
+			#box {
+				width: 400px;
+				height: 400px;
+				background: red;
+			}
+			#menu {
+				width: 80px;
+				height: 75px;
+				background: darkgray;
+				position: absolute;
+				display: none;
+			}
+			#menu li {
+				width: 80px;
+				height: 24px;
+				line-height: 25px;
+				text-align: center;
+				background: blanchedalmond;
+				border-bottom: 1px solid blueviolet;
+			}
+			#menu a {				
+				text-decoration: none;
+				display: block;
+			}
+		</style>
+		<script>
+			/*
+			 * 阻止系统菜单
+			 */
+			window.onload = function() {
+				//阻止系统右键菜单
+				document.oncontextmenu = function() {
+					return false;
+				}
+				
+				var oBox = document.getElementById("box");
+				var oMenu = document.getElementById("menu");
+				
+				oBox.onmousedown = function(evt) {
+					var e = evt || window.event;
+					if(e.button == 2) {
+						oMenu.style.display = "block";
+						oMenu.style.left = e.clientX + "px";
+						oMenu.style.top = e.clientY + "px";
+					}
+				}
+				//点击其他地方, 菜单消失
+				document.onclick = function() {
+					oMenu.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="menu" style="color: blue;">
+			<ul>
+				<li><a href="##">剪切</a></li>
+				<li><a href="##">复制</a></li>
+				<li><a href="##">粘贴</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style></style>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		
+		
+		<script>
+		$(function(){
+			var arr;
+			$.get("data.txt", function(str){
+				//console.log(eval("("+str+")"));
+				//console.log( JSON.parse(str) );
+				arr=eval("("+str+")").list;
+			});
+		
+			$("input:eq(2)").click(function(){
+				var user=$("input:eq(0)").val();
+				var pwd=$("input:eq(1)").val();
+				//alert(user+"\n"+pwd);
+				var flag=false;
+				$.each(arr, function(i){
+					//console.log(arr[i]);
+					var o=arr[i];
+					if(user==o.username && pwd==o.password){
+						flag=true;
+						//location.href="/1.txt";
+						location.href="02.html";
+						return false;//跳出each循环
+						
+					}
+				})
+				if(flag==false){
+					alert("登陆失败");
+				}
+			});
+		});
+		</script>
+	</head>
+	<body>
+		用户名：<input type="text" /><br>
+		密码：<input type="text" /><br>
+		<input type="button" value="登陆" />
+	</body>
+</html>

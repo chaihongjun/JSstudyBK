@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取URL的name值 getUrl(url,name) 传入url和key 得到key对应的value</title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	var url = "http://192.168.1.82:8020/juzhong/getURLvalue.html?name1=zhangyiggg&sex1=nuuu&age1=8090";
+    var name1 = getUrl(url,"name1");
+    var sex1 = getUrl(url,"sex1");
+    var age1 = getUrl(url,"age1");
+    console.log("name1= "+name1);
+    console.log("sex1= "+sex1);            
+    console.log("age1= "+age1);
+    
+    //链接带后缀！用
+    function getUrl(url,name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = url.split("?")[1].match(reg);
+        //    var r = url.split(name+"=")[1].split("!")[0];
+        if (r != null)
+            return decodeURI(r[2]);
+        return null;
+    }
+            
+</script>

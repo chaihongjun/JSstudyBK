@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+			var str = "hjshjshdjuwiuasdqweas";
+			
+			function quChong(str){
+				var strArr = str.split("");
+				strArr.sort();
+				var resultArr = [];
+				var strTmp = "";
+				
+				for (var i in strArr) {
+					if (strArr[i] != strTmp) {
+						resultArr.push(strArr[i]);
+						strTmp = strArr[i];
+					}
+				}
+				return resultArr;
+			}
+			
+			console.log(quChong(str));
+			console.log(quChong(str).toString());
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

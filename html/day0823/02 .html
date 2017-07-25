@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{border: 1px solid #ccc;background: magenta;display: none;}
+		</style>
+		<script type="text/javascript" src="js/Ajax.js" ></script>
+		<script>
+			function show(){
+				var word = document.getElementById("word").value;     //得到文本域中的值
+				var div1 = document.getElementById("div1");      //得到提示菜单div
+				div1.innerHTML = "";    //提示菜单清空的值。如果不清空、将累加。
+				
+				
+				if (word != "") {    //文本域中的值为空时！
+					var url = "word.txt?x="+new Date().getTime(); 
+					
+					ajax(url,function(str){
+						
+						var arr = eval("("+str+")").list;    //得到数组
+						
+						for (var i=0;i<arr.length;i++) {    //遍历数组
+							var obj = arr[i];    //得到对象
+							//在数据的key中，查询文本域的值，如果存在、则大于1；
+							if (obj.key.toUpperCase().indexOf(word.toUpperCase()) > -1) {
+							
+								div1.innerHTML += obj.key.replace(word,"<font color=red>"+word+"</font>")+"<br/>";    //将 key值追加到提示菜单中；
+								div1.style.display = "block";
+								
+//								while(div1.innerHTML == ""){
+//									div1.style.display = "none";
+//								}
+							}
+						}
+					});
+				}
+				
+				
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<input type="text" id="word" onkeyup="show()" />
+		<div id="div1"></div>
+	</body>
+</html>

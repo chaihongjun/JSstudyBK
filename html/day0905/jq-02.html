@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				//$("p:first").css("color","red");
+				//$("p:eq(2)").css("color","red");
+				
+				//$("p:even").css("color","red");
+				//$("p:odd").css("color","red");
+				
+				//$("#f:first").css("color","red");
+				//$(".c1:first").css("color","red");
+				//$(".c1:last").css("color","red");
+				
+				
+				//$(".c1:gt(1)").css("color","green");  //所有大于该索引的（数字为下标）
+				$(".c1:lt(1)").css("color","green");    //所有小于该索引的（数字为下标）
+				
+			})
+		</script>
+	</head>
+	<body>
+		
+		<h1>沁园春·雪</h1>
+		<h2>毛泽东</h2>
+		<div>
+			<span>
+				<div>北国风光，千里冰封，万里雪飘。
+					<div>望长城内外，惟余莽莽；大河上下，顿失滔滔。</div>
+					<p id="f">山舞银蛇，原驰蜡象，欲与天公试比高。</p>
+					<p>须晴日，看红装素裹，分外妖娆。</p>
+				</div>
+			</span>
+			<p id="mp">江山如此多娇，引无数英雄竞折腰。</p>
+		</div>
+		<p class="c1">惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。</p>
+		<p class="c1">一代天骄，成吉思汗，只识弯弓射大雕。</p>
+		<p class="c1">俱往矣，数风流人物，还看今朝。</p>
+
+	</body>
+</html>

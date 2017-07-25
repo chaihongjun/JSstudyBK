@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+		</style>
+		<script>
+		/*
+				1.有一个div块,如果我按下ctrl+c变换颜色  c  67
+				2.如果我按下ctrl + shift + b 重置颜色,回复初始颜色  b  66
+				3.如果我按下向上箭头 向上移动 同理 上下左右  38  40  37  39
+				4.如果我按下ctrl + 上下左右,走的步数变大
+			*/
+			/*       keyCode
+	         w 上       87
+	         s 下       83
+	         a 左       65
+	         d 右       68
+	         */
+			window.onload = function() {
+				var box = document.getElementById("box");
+				document.onkeydown = function(evt) {
+					var e = evt || window.event;
+					var left = numFromStr(box.style.left);
+					var top = numFromStr(box.style.top);
+					var step = 10;
+					if(e.ctrlKey && e.keyCode == 67) {
+						box.style.backgroundColor = "rgba("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+",1)";
+					}
+					if(e.ctrlKey && e.shiftKey && e.keyCode == 66) {
+						box.style.backgroundColor = "red";
+					}
+					if(e.keyCode == 87) {
+						box.style.top = top - step + "px";
+					} else if(e.keyCode == 83) {
+						box.style.top = top + step + "px";
+					}
+					 else if(e.keyCode == 65) {
+						box.style.left = left - step + "px";
+					} else if(e.keyCode == 68) {
+						box.style.left = left + step + "px";
+					}
+
+					if(e.keyCode == 38 && e.ctrlKey) {
+						box.style.top = top - step*5 + "px";
+					} else if(e.keyCode == 40 && e.ctrlKey) {
+						box.style.top = top + step*5 + "px";
+					}
+					 else if(e.keyCode == 37 && e.ctrlKey) {
+						box.style.left = left - step*5 + "px";
+					} else if(e.keyCode == 39 && e.ctrlKey) {
+						box.style.left = left + step*5 + "px";
+					}
+				}
+			}
+			function numFromStr(str) {
+				var index = str.indexOf("px");
+				var num = Number(str.substring(0, index));
+				return num;
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box" style="width: 300px; height: 300px; background: red; position: absolute; top: 200px; left: 200px;"></div>
+	</body>
+
+</html>

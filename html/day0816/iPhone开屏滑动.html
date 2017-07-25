@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+				var disX = 0;
+				
+				box2.onmousedown = function(evt){
+					var e = evt || window.event;
+					var disX = e.clientX;
+					
+					document.onmousemove = function(evt){
+						var e = evt || window.event;
+						var x = e.clientX - disX;
+						
+						if (x<=35) {
+							x = 35;
+						}else if (x>270) {
+							x = 298;
+						}
+						box2.style.left = x + "px";
+					}
+					
+					
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						
+						if (parseInt(box2.style.left) <= 290) {
+							box2.style.left = 35 + "px";
+						}else if(parseInt(box2.style.left) > 290) {
+							box1.style.background = "url(img/iphone2.jpg)";
+							box2.style.display = "none";
+						}
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1" 
+			style="width: 426px;
+			height: 640px;
+			background: url(img/iphone.jpg) no-repeat;
+			margin: 50px auto;
+			position: relative;">
+				<div id="box2" 
+					style="width: 93px;
+					height: 62px;
+					background: url(img/unlock_btn.jpg) no-repeat left;
+					position: absolute;
+					left: 35px;
+					bottom: 33px;
+					cursor: pointer;">
+				</div>
+		</div>
+	</body>
+</html>

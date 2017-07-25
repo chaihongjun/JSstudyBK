@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		window.onload = function(){
+			
+			btn.onclick = function () {
+				var num = getYZM();
+				this.value = num;
+//				this.innerHTML = num;
+			}
+		}
+		
+		function getYZM () {
+			var num = '';
+			for (var i=0;i<4;i++) {
+				num += parseInt(Math.random()*10);
+			}
+			return num;
+		}
+		
+		
+		</script>
+	</head>
+	<body>
+		<input type="button" value="1234" id="btn" />
+		<!--<input type="text"  id="btn" value="1234" />-->
+		
+		<!--<button id="btn">1234</button>-->
+	</body>
+</html>

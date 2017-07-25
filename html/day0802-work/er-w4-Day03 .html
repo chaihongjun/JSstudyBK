@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			// 1 10 ++
+			var i=1;
+			while(i<=10) {
+				document.write("helloworld<br/>");
+				i++;
+			}
+ 
+			*/
+			/*var i=0;
+			
+			while(i<10){
+				document.write("hello world!"+"&nbsp;"+i+"<br />");
+				i++;
+			}*/
+			
+			//var i = 2; 所有偶数
+			/*
+			var i=1;
+			var sum=0;
+			while(i<=100){
+				
+//				document.write(sum+"<br />");
+				sum += i;
+				//i=i+2 所有奇数
+				i++;
+			}
+			document.write(sum+"<br />");
+			*/
+			
+			/*var num=parseInt(prompt("输入一个数："));
+			var i=1;
+			var sum=1;
+			while(i<=num){
+				sum *=i;
+				i++;
+			}
+			alert(sum);
+			
+//			-------------
+
+
+			var i=1;
+			do{
+				document.write("hello!<br />");
+				i++;
+			}while(i<=10)
+			
+			*/
+			
+			/*
+			
+			var i=1;
+			var sum=0;
+			do{
+				sum+=i;
+				i++;
+				
+			}while(i<=100)
+			document.write(sum);
+			*/
+			
+			//输出m至n的自然数中的奇数和与偶数和，并统计偶数和奇数的个数分别是多少?
+			
+			//输出m至n的自然数中的奇数和与偶数和，并统计偶数和奇数的个数分别是多少
+			/*
+			var m = Number(prompt("请输入m："));
+			var n = Number(prompt("请输入n:"));
+	
+			var even_sum=0, odd_sum=0, even_num=0, odd_num=0;
+			
+			// m n ++
+			var t=0;
+			if(m>n) {
+				t=m;
+				m=n;
+				n=t;
+			}
+			var i=m;
+			do{
+				if(i%2 == 0) {
+					even_sum += i;
+					even_num++;
+				} else {
+					odd_sum += i;
+					odd_num++;
+				}
+				i++;
+				
+			}while(i<=n)
+	
+			document.write("偶数和是："+even_sum+"偶数个数是："+even_num+"<br/>");
+			document.write("奇数和是："+odd_sum+"奇数个数是："+odd_num+"<br/>");
+			*/
+			/*
+			var m = parseInt(prompt("请输入一个数m:"));
+			var n = parseInt(prompt("请输入一个数n:"));
+			
+			var sum_even=0,sum_odd=0, count_even=0;count_odd=0;
+			
+			var t=0;
+			if (m>n) {
+				t=m;
+				m=n;
+				n=t;
+			} 
+			var i=m;
+			do{
+				if(i%2==0){
+					sum_even+=i;
+					count_even++;
+				}else {
+					sum_odd += i;
+					count_odd++;
+				}
+				i++;
+				
+			}while(i<=n)
+			
+			document.write("偶数和是："+sum_even+"偶数个数是："+count_even+"<br/>");
+			document.write("奇数和是："+sum_odd+"奇数个数是："+count_odd+"<br/>");
+			*/
+			
+			
+			/*
+			for (var i=1;i<=10;i++) {
+					document.write("hello!"+"<br/>");
+			}
+			*/
+			
+		/*
+			for (var i=1;i<=9;i++) {
+				
+				for (var j=1;j<=i;j++) {
+					if (i==j) {
+						document.write(j+'x'+i+''+'='+j*i+'<br />');
+					} else{
+						document.write(j+'x'+i+''+'='+j*i+'&nbsp;');
+					}
+						
+				}
+			}
+		*/
+			
+			/*
+				for(var m = 1;m<=9;m++)
+				{
+					for(var n = 1;n<=m;n++)
+					{
+						document.write(n+"*"+m+"="+m*n+"&nbsp;");
+					}
+					document.write("<br>");
+				}
+			*/
+			
+			/*教师
+			for (var i=1;i<=9;i++) {
+				
+				for (var j=1;j<=i;j++) {
+					document.write(j+"*"+i+"="+i*j+"&nbsp;");
+				}
+				document.write("<br>");
+			}
+			*/
+			// 输出一元钱的兑换方案 1角  2角  5角
+			/*
+				1 2 5
+				0张一角 0张贰角 2张伍角
+				0张一角 5张贰角 0张伍角
+				1张一角 2张贰角 1张伍角
+				2张一角 4张贰角 0张伍角
+				3张一角 1张贰角 1张伍角
+				4张一角 3张贰角 0张伍角
+				5张一角 0张贰角 1张伍角
+				6张一角 2张贰角 0张伍角
+				8张一角 1张贰角 0张伍角
+				10张一角 0张贰角 0张伍角
+			*/
+			
+			//x来控制一毛的可能性--也就是一毛的个数（最小个数和最大个数）
+			//y来控制两毛的可能性--也就是两毛的个数（最小个数和最大个数）
+			//z来控制五毛的可能性--也就是五毛的个数（最小个数和最大个数）
+			
+			
+			/*
+			for (var x=0;x<=10;x++) {
+				for (var y=0;y<=5;y++) {
+					for (var z=0;z<=2;z++) {
+						if (x*1+y*2+z*5==10) {
+							document.write(x+"张一毛&nbsp;"+y+"张两毛&nbsp;"+z+"张五毛&nbsp;"+"<br />");
+						}
+					}
+				}
+			}
+			
+			*/
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+/*
+			for (var i=1;i<=100;i++) {
+				if (i%4==0) {
+					document.write(i+'<br />');
+				}
+			}
+*/
+
+
+
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			li{list-style: none;height: 30px;background: magenta;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+					var div = document.getElementById("div");
+					
+					var ul = document.createElement("ul");
+					div.appendChild(ul);
+					
+					
+					for (var i=0;i<6;i++) {
+						var li = document.createElement("li");
+						if (i%2==0) {
+							li.style.background = "mediumblue";
+						} else{
+							li.style.background = "mediumorchid";
+						}
+						ul.appendChild(li);
+					}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div">
+			
+		</div>
+	</body>
+</html>

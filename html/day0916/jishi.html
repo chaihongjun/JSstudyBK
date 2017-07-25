@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		
+	</head>
+	<body>
+		
+     <div id="remainSeconds" style="display:none">180000</div>
+     <div id="remainTime" style="font-size:20px;font-weight:800;color:#FF9900"></div>
+	
+		<script type="text/javascript" language="javascript">
+	          var SysSecond;
+	          var InterValObj;
+	          $(document).ready(function() {
+	          SysSecond = parseInt($("#remainSeconds").html());
+	          InterValObj = window.setInterval(SetRemainTime, 1000);
+	          });
+	          function SetRemainTime() {
+	          if (SysSecond > 0) {
+	          SysSecond = SysSecond - 1;
+	          var second = Math.floor(SysSecond % 60);  
+	          var minite = Math.floor((SysSecond / 60) % 60); 
+	          var hour = Math.floor((SysSecond / 3600) % 24);  
+	          var day = Math.floor((SysSecond / 3600) / 24); 
+	          $("#remainTime").html(day + "天" + hour + "小时" + minite + "分" + second + "秒");
+	           } else {
+	           window.clearInterval(InterValObj);
+	           }
+	           }
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!--</pre><pre name="code" class="html">-->
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+        <style type="text/css"> 
+         
+        	*{padding: 0;margin: 0;}
+            #wra div{  
+            	margin: 0 auto;
+                width: 1100px;  
+                height: 726px;  
+                text-align: center;  
+                font-size: 100PX;  
+                line-height:726px;  
+            }  
+            
+            
+            #wra #div1{  
+                background: red;  
+            }  
+            #wra #div2{  
+                background: oldlace;  
+            }  
+            #wra #div3{  
+                background: palegreen;  
+            }  
+            #wra #div4{  
+                background: magenta;  
+            }  
+            #wra #div5{  
+                background: mediumblue;  
+            }  
+            
+            
+            #wrap{  
+                width: 60px;  
+                height: auto;  
+                position: fixed;  
+                left: 100px;  
+                top: 200px;  
+                background: oldlace;  
+                  
+            }  
+            #wrap1{  
+                width:60px ;  
+                height: 60px;  
+                line-height: 60px; 
+                text-align: center;  
+                 
+            }  
+        </style>  
+    </head>  
+    <body>  
+        <div id="wra">  
+            <div id="div1">div1</div>  
+            <div id="div2">div2</div>  
+            <div id="div3">div3</div>  
+            <div id="div4">div4</div>
+            <div id="div5">div5</div>
+        </div>  
+        
+        <div id="wrap">  
+            <div id="wrap1" style="background: red;">1</div>  
+            <div id="wrap1" style="background: blue;">2</div>  
+            <div id="wrap1" style="background: mediumaquamarine;">3</div>  
+            <div id="wrap1" style="background: olive;">4</div>  
+            <div id="wrap1" style="background: seagreen;">5</div>  
+        </div>  
+    </body>  
+    <script type="text/javascript">  
+        $(function(){  
+            $('#wrap div').click(function(){  
+                $(document).scrollTop($('#wra').children().eq($(this).index()).offset().top);  
+            })  
+        })  
+    </script>  
+</html>  

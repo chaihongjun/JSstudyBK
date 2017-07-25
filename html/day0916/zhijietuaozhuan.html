@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>三面后自动跳转或者直接跳转的简单实现</title>
+	</head>
+	<body>
+		 <p>
+		     <span id="timer"></span> 秒后自动返回
+		     <a href="http://www.baidu.com/">直接跳转</a>
+		 </p>
+		 
+		 
+		 <script>
+		 	window.onload = function(){
+		 		
+		    var time = 3; //设置时间为几秒
+		    var timer = document.getElementById('timer'); //获取ID为timer的对象
+		    timer.innerHTML = time; //初始化显示秒数
+		    
+		    time = time - 1;
+		    
+		    var g = window.setInterval(function(){
+		        if(time<0){
+		            window.clearTimeout(g); //清除动画
+		            window.location.href = 'http://www.baidu.com/'; //跳转到指定地址
+		            //window.history.back(-1); //后退
+		        } else {
+		            showTime();
+		        }
+		    },1000);
+		    //显示函数
+		    function showTime(){
+		        timer.innerHTML = time;
+		        time--;
+		    }
+		};
+		 </script>
+	</body>
+</html>

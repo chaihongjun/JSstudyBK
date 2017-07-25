@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算100的阶乘</title>
+		<script>
+		
+		  function fn(n){
+		  	if (n==1) {
+		  		return 1;
+		  	}else{
+		  		return n*fn(n-1);
+		  	}
+		  }
+		  var ss = fn(100);
+		  document.write(ss);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

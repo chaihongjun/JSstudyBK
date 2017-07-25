@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var div = document.getElementById("div");
+				div.onmousemove =function(){
+					var r=parseInt(Math.random()*256);
+					var g=parseInt(Math.random()*256);
+					var b=parseInt(Math.random()*256);
+					div.style.background = "rgb("+r+","+g+","+b+")";
+					console.log(div.style.background);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div" style="width: 200px;height: 200px;background: lavender;margin: 90px auto;" ></div>
+	</body>
+</html>

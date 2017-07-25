@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>js--冒泡排序</title>
+	<script type="text/javascript">
+	    //冒泡排序 
+	    var arr=[2,47,29,09,288,689,3,0,-345,123,-567];
+	    document.write("排序前:<br/>");
+	    for(var i=0;i<arr.length;i++){
+	        document.writeln(arr[i]);
+	    }
+	    document.write("<br/>");
+	    document.write("冒泡排序后:<br/>");
+	    for(var i=0;i<arr.length-1;i++){ 
+	        //定义一个变量保存交换的值
+	        var temp;
+	        for(j=i+1;j<arr.length;j++){
+	            if(arr[i]>arr[j]){
+	                temp=arr[i];
+	                arr[i]=arr[j];
+	                arr[j]=temp;
+	            }
+	        }    
+	    }
+	    document.write(arr);
+	</script>
+</head>
+<body>
+</body>
+</html>

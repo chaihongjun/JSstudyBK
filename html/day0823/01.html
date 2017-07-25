@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/Ajax.js" ></script>
+		<script>
+		
+			function demo(){
+				
+				var userName = document.getElementById("userName");
+				var span1 = document.getElementById("span1");
+				var url = "txt.txt?x="+new Date().getTime(); 
+			
+				ajax(url,function(str){
+					var arr = eval("("+str+")").list;
+					var flag = false;
+					var listUsername = userName.value;
+					
+					for (var i=0;i<arr.length;i++) {
+						if (arr[i] == listUsername ) {
+							flag = true;
+							break; //也可以通过赋值实现跳出循环：i=arr.length;
+						}
+					}
+					span1.innerHTML = (flag)?"<font color='red'>用户名已经被暂用</font>":"<font color='green'>用户名可以使用</font>";
+				});
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		用户名：
+		<input type="text" id="userName" onblur="demo()" />
+		<span id="span1"></span>
+	</body>
+</html>

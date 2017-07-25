@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;float: left;}
+			
+			#box{width: 150px;height: 300px;background: magenta;position: absolute;left: -130px; top: 200px;}
+			
+			.content{width: 130px;height: 300px;background: mediumaquamarine;}
+			
+			.fenxiang{width: 20px;height: 180px;background: lightblue;text-align: center;padding-top: 120px;}
+			a{display: inline-block; text-align: center;width: 130px;height: 25px;line-height: 25px;}
+			
+		</style>
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		<script>
+			window.onload = function(){
+				//var fenxiang = document.getElementsByClassName("fenxiang")[0];
+				var box = document.getElementById("box");
+				
+				box.onmouseover = function(){
+					startMove(box,{left:0})
+				}
+				box.onmouseout = function(){
+					startMove(box,{left:-130})
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li class="content">
+					<a href="#">QQ空间</a>	<br />
+					<a href="#">新浪微博</a>	<br />
+					<a href="#">人人网</a>	<br />
+					<a href="#">豆掰</a>	<br />
+					<a href="#">朋友圈</a>	<br />
+					<a href="#">CSDN</a>	<br />
+					<a href="#">XX空间</a>	<br />
+					<a href="#">陌陌</a>	<br />
+					<a href="#">易信</a>	<br />
+					<a href="#">网易</a>	<br />
+					<a href="#">好气哦</a>	<br />
+				</li>
+				<li class="fenxiang">
+					分享到
+				</li>
+			</ul>
+			
+		</div>
+	</body>
+</html>
+
+<!--var fenxiang=document.getElementsByClassName("fenxiang")[0];
+				var box=document.getElementById("box");
+				
+				box.onmouseover=function(){
+					startMove(box, {left:0});
+				}
+				box.onmouseout=function(){
+					startMove(box, {left:-130});
+				}-->

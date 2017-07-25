@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			img{width: 400px;height: 300px;display: block;}
+			
+			#box{width: 400px;height: 300px;overflow: hidden;margin: 0 auto;position: relative;}
+			#box>ul{width: 4400px;height: 300px;position: absolute;left: 0px; top: 0px;}
+			
+			#box>ul>li{width: 400px;height: 300px;float: left;}
+			
+			#box>ol{position: absolute;bottom: 10px;right: 0px;}
+			#box>ol>li{width: 15px;height: 15px;line-height: 15px;border-radius: 10px; background:lightskyblue;float: left;margin-right: 10px;text-align: center;cursor: pointer;}
+			
+			.selected{background: red!important;}
+			
+		</style>
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		<script>
+			window.onload = function(){
+				var ul = document.getElementsByTagName("ul")[0];
+				var ol = document.getElementsByTagName("ol")[0];
+				var box = document.getElementById("box");
+				
+				var aLi = ol.children;
+				
+				var cLi = ul.children;
+				var li=document.createElement("li");
+				li.innerHTML=cLi[0].innerHTML;
+				ul.appendChild(li);
+				
+				var now=0;
+				for (var i=0;i<aLi.length;i++) {
+					var li = aLi[i];
+					li.index = i;
+					li.onclick = function(){
+						now=this.index;
+						tab();
+					}
+				}
+			
+				//显示图片
+				function tab(){
+					for (var i=0;i<aLi.length;i++) {
+						var li = aLi[i];
+						li.className="";
+						aLi[now].className ="selected";
+						startMove(ul,{left:-400*now});
+					}
+					//aLi[now].className ="selected";
+					//startMove(ul,{left:-400*now});
+				}
+	
+				//定时器
+				function next(){
+					now++;
+					if(now==aLi.length){
+						aLi[now-1].className="";
+						aLi[0].className="selected";
+						
+						startMove(ul,{left:-400*now},function(){
+							if(now==aLi.length){
+								now=0;
+								ul.style.left="0";
+							}
+						});
+						
+					}else{
+						tab();
+					}	
+				}
+				
+				//注意延时时间的设定
+				var timer = setInterval(next,2000);
+				box.onmouseover = function(){
+					clearInterval(timer);
+				}
+				box.onmouseout = function(){
+					timer = setInterval(next,2000);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="imgs/rr.jpg"  /> </li>
+				<li><img src="imgs/1kkk.jpg" /> </li>
+				<li><img src="imgs/2eee.jpg" /> </li>
+				<li><img src="imgs/3fff.jpg" /> </li>
+				<li><img src="imgs/rtd.jpg" /> </li>
+				<li><img src="imgs/hhj.jpg" /> </li>
+				<li><img src="imgs/nb.jpg" /> </li>
+				<li><img src="imgs/po.jpg" /> </li>
+				<li><img src="imgs/q.jpg" /> </li>
+				<li><img src="imgs/sd.jpg" /> </li>
+			</ul>
+			<ol>
+				<li class="selected">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ol>
+		</div>
+	</body>
+</html>

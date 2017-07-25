@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*
+			function createObjext(_name,_age){
+				var obj = new Object();
+				obj.name = _name;
+				obj.age = _age;
+				obj.demo = function(){
+					alert(obj.name+";"+obj.age);
+				}
+				return obj;
+			}
+			
+			var obj1 = createObjext("zhangsan",2345);
+			//alert(obj1.name);
+			obj1.demo();
+			*/
+			
+			
+			
+			function createObjext(_name,_age){
+				//var this = new Object();   //相当于给this是new创建的对象、、、、见上例（类似）
+				this.name = _name;
+				this.age = _age;
+				this.demo = function(){
+					alert(this.name+";"+this.age);
+				}
+					//return this;
+			}
+			//执行函数时如果用到了new，则表示程序自动添加26和32行。
+			//this指向的是obj1
+			var obj1 = new createObjext("zhangsan",2345); //new指创建一个实例
+			//alert(obj1.name);
+			obj1.demo();
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

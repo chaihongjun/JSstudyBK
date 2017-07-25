@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		/*
+			//等到页面元素都加载完了以后执行，包括src资源等文件
+			window.onload = function() {
+				console.log(document.getElementById("num1"));
+			}
+		*/
+		
+		function calculate(num1, fuHao, num2) {
+			
+			switch(fuHao) {
+				case "+" : return (num1+num2);
+				case "-" : return (num1-num2);
+				case "*" : return (num1*num2);
+				case "/" : return num2==0? ("除数不能为0") : (num1/num2);
+				case "%" : return (num1%num2);
+				default: return ("请输入合法字符");
+			}
+		}
+		
+		
+		function click2() {
+			var num1 = Number(document.getElementById("num1").value);
+			var fuHao = document.getElementById("fuHao").value;
+			var num2 = Number(document.getElementById("num2").value);
+			
+			document.getElementById("jieGuo").value = calculate(num1, fuHao, num2) ;
+		}
+		
+
+	
+		</script>
+	</head>
+	<body>
+		<input type="text" id="num1" />
+		<input type="text" id="fuHao" />
+		<input type="text" id="num2" />
+		<input type="button" value="等于" onclick="click2()" />
+		<input type="text" id="jieGuo" />
+		
+		
+		<!--
+        	作者：offline
+        	时间：2016-08-05
+        	描述：
+       
+		<script type="text/javascript">
+		
+			console.log(document.getElementById("num1").value); //输出value的值
+			document.getElementById("num1").value = 1234; //改变value的值
+			
+		</script>
+		
+		 -->
+		
+		
+	</body>
+</html>

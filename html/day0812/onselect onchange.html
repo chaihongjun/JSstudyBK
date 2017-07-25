@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var ss = document.getElementsByTagName("input")[0];
+				var str = document.getElementById("box");
+				
+				ss.onselect = function(){
+					str.innerHTML = "被选中了！";
+				}
+				
+				ss.onchange = function(){
+					str.innerHTML = "被修改了";
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		<input type="text" value="中华人民共和国哦！" />
+		
+		<div id="box" style="width: 200px;height: 200px;background: red;"></div>
+		
+	</body>
+</html>

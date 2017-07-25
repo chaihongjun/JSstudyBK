@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			window.onload = function(){
+				
+				var str1 = document.getElementsByTagName("img")[0];
+				var str2 = document.getElementsByTagName("img")[1];
+				var str3 = document.getElementsByTagName("img")[2];
+				var str4 = document.getElementsByTagName("img")[3];
+				
+				var str5 = document.getElementById("box2");
+				
+				
+				
+				str1.onmouseover = function() {
+					str5.style.display = "block";
+				 	str5.style.background = "url(img/shirt_1_big.jpg)";
+				 }
+				str1.onmouseout = function() {
+					str5.style.display = "none";
+				 }
+				
+				str2.onmouseover = function() {
+					str5.style.display = "block";
+				 	str5.style.background = "url(img/shirt_2_big.jpg)";
+				 }
+				str2.onmouseout = function() {
+					str5.style.display = "none";
+				 }
+				
+				str3.onmouseover = function() {
+					str5.style.display = "block";
+				 	str5.style.background = "url(img/shirt_3_big.jpg)";
+				 }
+				str3.onmouseout = function() {
+					str5.style.display = "none";
+				 }
+				
+				str4.onmouseover = function() {
+					str5.style.display = "block";
+				 	str5.style.background = "url(img/shirt_4_big.jpg)";
+				 }
+				str4.onmouseout = function() {
+					str5.style.display = "none";
+				 }
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1" style="width: 785px; height: 172px;text-align: center;margin: 20px auto;">
+			<img src="img/shirt_1.jpg" style="border: 1px solid #ccc;" />
+			<img src="img/shirt_2.jpg" style="border: 1px solid #ccc;" />
+			<img src="img/shirt_3.jpg" style="border: 1px solid #ccc;" />
+			<img src="img/shirt_4.jpg" style="border: 1px solid #ccc;" />
+		</div>
+		
+		<div id="box2" 
+			style="width: 401px;
+			height: 401px;
+			background: red;
+			display: none; 
+			border: 1px solid #ccc; 
+			position: fixed;
+			left: 530px;
+			top: 200px;">
+		</div>
+	</body>
+</html>

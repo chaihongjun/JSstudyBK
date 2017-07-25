@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+			window.onload = function() {
+				
+				var box = document.getElementById("box");
+				
+				var newNode = createNodeWithInfo("p", "我要插入到前面");
+				
+				box.parentNode.insertBefore(newNode, box);
+				
+				//createElement(): 创建一个元素节点
+				
+				//创建后放在内存中， 不会自动直接显示在body中
+				
+				
+				var pNode = document.createElement("p"); 
+				var box = document.getElementById("box");
+				pNode.innerHTML = "<strong>我是内容<strong>";				
+				box.appendChild(pNode);  //给box节点添加一个子节点pNode， pNode会在box子节点的末尾
+
+			}
+			
+			
+			
+			function createNodeWithInfo(nodeName, nodeValue) {
+				var eleNode = document.createElement(nodeName);
+				var textNode = document.createTextNode(nodeValue);
+				eleNode.appendChild(textNode);
+				return eleNode;
+			}
+			
+			
+			
+			
+			/*
+			 function createNodeWithInfo(nodeName, nodeHTML) {
+			 	var eleNode = document.createElement(nodeName);
+			 	eleNode.innerHTML = nodeHTML;
+			 	return eleNode;
+			 }
+			*/
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box" style="
+			width: 100px;
+			height: auto;
+			background: salmon;
+			line-height: 100px;
+			border: 2px solid red;
+			font-family: '微软雅黑';
+			font-size: 20px;
+			font-weight: 600;">
+			444
+			<em>aaa</em>
+			<i>bbb</i>
+			<p>ccc</p>
+			父元素
+		</div>
+			
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单验证之用户名和密码</title>
+		<script type="text/javascript">
+			function checkUserName(){
+				var userNum=document.getElementById("userNum");
+				var userNumValue=userNum.value;
+				var error=document.getElementById("error");
+				
+				if(userNumValue.charAt(0)>=0||userNumValue.charAt(0)<=9){
+					error.innerHTML="用户名不可以以数字开头";
+				}else if(userNumValue.length<6||userNumValue.length>20){
+					error.innerHTML="用户名长度不低于6，不高于20";
+				}else{
+					error.innerHTML="";
+				}
+			}
+			function checkpwd(){
+				var pwd=document.getElementById("pwd");
+				var pwdValue=pwd.value;
+				var error=document.getElementById("error");
+				
+				if(pwdValue.length==0){
+					error.innerHTML="密码不能为空";
+				}else {
+					error.innerHTML="";
+				}
+			}
+			function btnclick(){
+				checkUserName();
+				checkpwd();
+			}
+					
+		</script>
+	</head>
+	<body>
+		<input type="text" id="userNum" placeholder="请输入账户" onblur="checkUserName()" />
+		<input type="password" id="pwd" placeholder="请输入密码" onblur="checkpwd()"/>
+		<button id="btn" onclick="btnclick()">登录</button>
+		<p id="error" ></p>
+	</body>
+</html>

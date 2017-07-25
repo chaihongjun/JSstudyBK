@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			ul>li{float: left; width: 120px;height: 30px;text-align: center;line-height: 30px;border: 1px solid #ccc;background: deepskyblue;}
+			ol{display: none;}
+			ol>li{background: mediumaquamarine;}
+			ul>li>ol>li{ position:relative;}
+			ul>li>ol>li>ol{ position:absolute; left:120px; top:0px;}
+			ul>li>ol>li>ol>li{  background:blue; width:120px;}
+		</style>
+		<script>
+			window.onload = function(){
+				var tab = document.getElementsByTagName("ul")[0].children;
+				
+				for (var i=0;i<tab.length;i++) {
+					tab[i].onmouseover = function(){
+						var ol = this.children[0];
+						ol.style.display = "block";
+						
+						var aLi = ol.children;
+						for (var j=0;j<aLi.length;j++) {
+							
+							var li = aLi[j];
+							li.onmouseover = function(){
+								var ol = this.children[0];
+								ol.style.display = "block";
+							}
+							
+							li.onmouseout = function(){
+								var ol = this.children[0];
+								ol.style.display = "none";
+							}
+						}
+					}
+					
+					tab[i].onmouseout = function(){
+						var ol = this.children[0];
+						ol.style.display = "none";
+					}
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>中国
+				<ol>
+					<li>河南
+						<ol>
+							<li>开封</li>
+							<li>郑州</li>
+							<li>洛阳</li>
+						</ol>
+					</li>
+					<li>河北
+						<ol>
+							<li>保定</li>
+							<li>唐山</li>
+							<li>石家庄</li>
+						</ol>
+					</li>
+					<li>山东
+						<ol>
+							<li>济南</li>
+							<li>泰安</li>
+							<li>青岛</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+			
+			<li>美国
+				<ol>
+					<li>加州
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+					<li>华盛顿
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+					<li>德克萨斯
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+				
+				</ol>
+			</li>
+			
+			<li>英国
+				<ol>
+					<li>苏格兰
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+					<li>英格兰
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+					<li>威尔士
+						<ol>
+							<li>111</li>
+							<li>222</li>
+							<li>333</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+			
+		</ul>
+	</body>
+</html>

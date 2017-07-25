@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>透明轮播</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			
+			
+			li{list-style: none;}
+			
+			#box{width: 810px;height: 320px;overflow: hidden;margin: 0 auto;position: relative;}
+
+
+			#box>.box_ulimg{width: 810px;height: 1280px;}
+			
+			#box>.box_ulimg>li{width: 810px;height: 320px;position: absolute;top: 0px;opacity: 0;}
+			#box>.box_ulimg>.selected{opacity: 1;}
+			
+			
+			
+			
+			#box>.box_olbtn{position: absolute;bottom: 10px;right: 0px;}
+			#box>.box_olbtn>li{width: 15px;height: 15px;line-height: 15px;border-radius: 10px; background:lightskyblue;float: left;margin-right: 10px;text-align: center;cursor: pointer;}
+
+
+			#box>.box_olbtn>.selected{background: red!important;}
+			
+			
+		</style>
+		
+		
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		
+		
+		<script>
+			window.onload = function(){
+//				var ul = document.getElementsByTagName("ul")[0];
+//				var ol = document.getElementsByTagName("ol")[0];
+//				
+
+
+				var ul=document.getElementsByClassName("box_ulimg")[0];
+				var ol=document.getElementsByClassName("box_olbtn")[0];
+				
+				var box = document.getElementById("box");
+				
+				
+				var aLi = ol.children;
+				var cLi = ul.children;
+				cLi[0].style.opacity=1;
+				var now=0;
+				for (var i=0;i<aLi.length;i++) {
+					var li = aLi[i];
+					li.index = i;
+					
+					li.onclick = function(){
+						now=this.index;
+						tab();
+					}
+				}
+				//封装成函数
+				function next(){
+					now++;
+					if (now==aLi.length) {
+						now=0;
+					}
+					tab();
+				}
+				var timer = setInterval(next,1000);
+				box.onmouseover = function(){
+					clearInterval(timer);
+				}
+				box.onmouseout = function(){
+					timer = setInterval(next,1000);
+				}
+				
+				function tab(){
+					for (var i=0;i<aLi.length;i++) {
+						var li = aLi[i];
+						li.className = "";
+						startMove(cLi[i],{opacity:0})
+					}
+					aLi[now].className ="selected";
+					startMove(cLi[now], {opacity:100});
+				}
+			}
+		</script>
+		
+		
+	</head>
+	<body>
+		
+		
+		<div id="box">
+			<ul class="box_ulimg">
+				<li><img src="images/001.jpg" /> </li>
+				<li><img src="images/002.jpg" /> </li>
+				<li><img src="images/003.jpg" /> </li>
+				<li><img src="images/004.jpg" /> </li>
+			</ul>
+			
+			<ol class="box_olbtn">
+				<li class="selected">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+		</div>
+		
+		
+	</body>
+</html>

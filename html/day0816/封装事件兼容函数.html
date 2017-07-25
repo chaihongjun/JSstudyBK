@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		//自己封装事件兼容函数
+			function addEvent(target, type, func) { 
+			    if (target.addEventListener) { //非ie 和ie9 
+			        target.addEventListener(type, func, false); 
+		        } else if (target.attachEvent) { //ie6到ie8 
+			        target.attachEvent("on" + type, func); 
+			    } else {  //ie5 
+			    	target["on" + type] = func;
+			    }
+			}; 
+
+			function removeEvent(target, type, func){ 
+			    if (target.removeEventListener) {
+			        target.removeEventListener(type, func, false);
+			    } else if (target.detachEvent) {
+			        target.detachEvent("on" + type, func); 
+			    } else {
+			   		target["on" + type] = null; 
+			   	}
+			}; 
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

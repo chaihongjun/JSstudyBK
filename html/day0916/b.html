@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery1.3.2竖向的伸缩菜单</title>
+<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("#wenzhang>dd>dl>dd").hide();
+  $.each($("#wenzhang>dd>dl>dt"), function(){
+   $(this).click(function(){
+    $("#wenzhang>dd>dl>dd ").not($(this).next()).slideUp();
+    $(this).next().slideToggle(500);
+    //$(this).next().toggle();
+   });
+  });
+  });
+ </script>
+<style type="text/css">
+dl,dd,dt,ul,li{ margin:0; padding:0; list-style:none; color:#333;}
+#wenzhang{ width:300px; text-align:center; font-size:12px;border-left:1px solid #dedede;border-right:1px solid #dedede; border-bottom:1px solid #dedede;}
+#wenzhang dd dl dt{ border-top:1px solid #dedede; background:#f2f2f2; height:25px; line-height:25px; font-weight:bold;}
+#wenzhang ul{ background:#f9f9f9; }
+#wenzhang li{ border-top:1px solid #efefef; line-height:25px;}
+</style>
+</head>
+<body>
+ <dl id="wenzhang">
+ <dd>
+ <dl>
+  <dt>脚本下载</dt>
+  <dd>
+  <ul>
+  <li>ASP源码下载</li>
+  <li>PHP源码下载</li>
+  <li>ASP.net源码下载</li>
+  </ul>
+  </dd>
+ </dl>
+ </dd>
+ <dd>
+ <dl>
+  <dt>网页特效</dt>
+  <dd>
+  <ul>
+  <li>菜单导航</li>
+  <li>层和布局洋</li>
+  <li>表单及按钮</li>
+  </ul>
+  </dd>
+ </dl>
+ </dd> 
+ <dd>
+ <dl>
+  <dt>最新更新</dt>
+  <dd>
+  <ul>
+   <li>最新更新</li>
+   <li>下载排行</li>
+   <li>推荐下载</li>
+  </ul>
+  </dd>
+ </dl>
+ </dd> 
+ </dl>
+ <p>如果初次运行，请刷新一次页面，调用了本站的jQuery，可能加载需要些时间。</p>
+</body>
+</html>

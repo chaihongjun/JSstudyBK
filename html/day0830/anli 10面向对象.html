@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+	<style>
+		#div1{ position:absolute; background:blue; width:300px; height:300px; cursor:move;}
+		#div2{ position:absolute; background:red; width:200px; height:200px; cursor:move;}
+	</style>
+</head>
+ <body style="width:5000px; height:5000px;">
+	
+	<div id="div1">
+		程序有两种写法：
+		一：面向过程，根据需求，一步一步的去实现的过程，叫做面向过程
+		二：面向对象，只关注功能如何使用，而不去关注功能是怎么实现的
+	</div>
+	<div id="div2"></div>
+	
+	<script>
+		//oop面向对象
+		new drag(div1);
+		new limitDrag(div2);
+		
+		function drag(obj){
+			var _this = this;
+			this.o=obj;
+			this.x=null;
+			this.y=null;
+			this.o.onmousedown = function(event){
+				//console.log(_this)
+				event=event||window.event;
+				_this.Down(event);	
+				return false;
+				}
+		
+			}
+		
+			drag.prototype.Down = function(event){	
+				var _this=this;
+				this.x=event.clientX-this.o.offsetLeft;
+				this.y=event.clientY-this.o.offsetTop;
+				document.onmousemove = function(event){
+					event=event||window.event;
+					_this.Move(event);
+				}
+				document.onmouseup = function(){
+					_this.Up();
+				}
+				return false
+			}
+			
+			drag.prototype.Move=function(event){
+				this.o.style.left=event.clientX-this.x+"px";
+				this.o.style.top=event.clientY-this.y+"px";
+			}
+			
+			drag.prototype.Up=function(){
+				document.onmousemove=null;
+				document.onmouseup=null; 
+			}
+			
+			function limitDrag(obj){
+				drag.call(this, obj);
+			}
+			
+			for(var i in drag.prototype){
+				limitDrag.prototype[i] = drag.prototype[i];
+			}
+			
+			limitDrag.prototype.Move=function(event){
+				var x=event.clientX-this.x;
+				var y=event.clientY-this.y;
+				if(x<0)x=0;
+				var w=(document.body.clientWidth||document.documentElement.clientWidth)-this.o.offsetWidth;
+				if(x>w)x=w;
+				if(y<0)y=0;
+				var h=(document.body.clientHeight||document.documentElement.clientHeight)-this.o.offsetHeight;
+				if(y>h)y=h;
+				this.o.style.left=x+"px";
+				this.o.style.top=y+"px";
+			}
+			
+	</script>
+	</body>
+</html>

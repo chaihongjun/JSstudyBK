@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简易计算器</title>
+		<style type="text/css">
+			form{width: 200px;height:200px}
+			input{width: 50px;height: 40px;float: left;}
+			.txt{width: 196px;height: 40px;}
+			
+		</style>
+		<script>
+			window.onload = function(){
+				var inputs = document.getElementsByTagName("input");
+				
+				for (var i=2;i<inputs.length-1;i++) {
+					inputs[i].onclick = sum;
+				}
+				
+				inputs[16].onclick = function(){
+					inputs[0].value = eval(inputs[0].value);
+				}
+				inputs[1].onclick = function(){
+					inputs[0].value = "";
+				}
+				function sum(){
+					inputs[0].value += this.value;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" class="txt" />
+			<input type="button" value="C" />
+			<input type="button" value="0" />
+			<input type="button" value="1" />
+			<input type="button" value="2" />
+			<input type="button" value="3" />
+			<input type="button" value="4" />
+			<input type="button" value="5" />
+			<input type="button" value="6" />
+			<input type="button" value="7" />
+			<input type="button" value="8" />
+			<input type="button" value="9" />
+			<input type="button" value="+" />
+			<input type="button" value="-" />
+			<input type="button" value="*" />
+			<input type="button" value="/" />
+			<input type="button" value="=" />
+		</form>
+	</body>
+</html>

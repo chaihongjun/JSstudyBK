@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		创建日期:<br />
+		Date 对象用于处理日期和时间。 <br />
+		可以通过 new 关键词来定义 Date 对象。<br />
+		以下代码定义了名为 myDate 的 Date 对象：<br />
+		有四种方式初始化日期:<br />
+		new Date() // 当前日期和时间<br />
+		new Date(milliseconds) //返回从 1970 年 1 月 1 日至今的毫秒数<br />
+		new Date(dateString)<br />
+		new Date(year, month, day, hours, minutes, seconds, milliseconds)<br />
+		上面的参数大多数都是可选的，在不指定的情况下，默认参数是0。<br />
+		实例化一个日期的一些例子：<br />
+		var today = new Date()<br />
+		var d1 = new Date("October 13, 1975 11:13:00")<br />
+		var d2 = new Date(79,5,24)<br />
+		var d3 = new Date(79,5,24,11,33,0)<br />
+	</body>
+</html>
+<script type="text/javascript">
+	//不传数值 默认获取当前时间
+	//传时间的方式有三种："2019/09/08"  "2019-09-08"  "98765"  别忘了加引号！！
+	var dx = new Date();
+	console.log(dx);
+	var dy = new Date("2019/09/08");
+	console.log(dy);
+	console.log("=============================")
+	//其他形式
+	var d1 = new Date("January 6,2006 23:15:35");			
+	var d2 = new Date("January 6,2006");			
+	var d3 = new Date(2006,2,8,12,15,35);			
+	var d4 = new Date(2006,4,6);
+	var d5 = new Date(1137075575000);
+	console.log(d1);
+	console.log(d2);
+	console.log(d3);
+	console.log(d4);
+	console.log(d5);
+	
+	console.log("=============================")
+	
+	//获取年份
+	
+	var d6 = new Date();
+	console.log(d6.getFullYear());
+	d6.setFullYear("2230");
+	console.log(d6);
+	console.log(d6.getFullYear());
+	
+	console.log("=============================")
+	
+	var d7 = new Date();
+	console.log(typeof d7);
+	console.log(typeof d7.toString());
+	
+	console.log(d7.getHours());
+	d7.setHours("22");
+	console.log(d7.toLocaleString());
+	console.log(d7.getFullYear());
+	 
+	d7.getFullYear();
+	d7.getMonth();
+	d7.getDate();
+	
+	d7.getHours();
+	d7.getMinutes();
+	d7.getSeconds();
+	
+	console.log(d7.toLocaleString());
+	console.log("=============================")
+	
+	d7.setFullYear("2029");
+	d7.setMonth("9");
+	d7.setDate("29");
+	
+	d7.setHours("23");
+	d7.setMinutes("59");
+	d7.setSeconds("00");
+	
+	console.log(d7.toLocaleString());
+</script>

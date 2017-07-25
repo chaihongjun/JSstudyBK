@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>homeWork</title>
+	<style>
+		
+	</style>
+	<script>
+		window.onload = function() {
+			var div1 = document.getElementById("div1");
+			var div2 = document.getElementById("div2");
+			var div3 = document.getElementById("div3");
+			var temX = 3;
+			var temY = 1;
+			var temYY = 10;
+			setInterval(function(){
+				//10px  10
+				if(numFromStr(div2.style.width)+numFromStr(div2.style.left) >= numFromStr(div1.style.width)) {
+					temX *= -1;
+				}
+				if(numFromStr(div2.style.left)<=0) {
+					temX *= -1;
+				}
+				if(numFromStr(div2.style.height)+numFromStr(div2.style.top) >= numFromStr(div1.style.height)) {
+					temY *= -1;
+				}
+				if(numFromStr(div2.style.top)<=0) {
+					temY *= -1;
+				}
+
+				if(numFromStr(div3.style.height)+numFromStr(div3.style.top) >= numFromStr(div1.style.height)) {
+					temYY *= -1;
+				}
+				if(numFromStr(div3.style.top)<=0) {
+					temYY *= -1;
+				}
+				
+				
+				div2.style.left = numFromStr(div2.style.left) + temX + "px";
+				div2.style.top = numFromStr(div2.style.top) + temY + "px";
+
+				div3.style.left = numFromStr(div3.style.left) + temX + "px";
+				div3.style.top = numFromStr(div3.style.top) + temYY + "px";
+			}, 50)
+		}
+
+		function numFromStr(str) {
+			var index = str.indexOf("px");
+			var num = Number(str.substring(0, index));
+			return num;
+		}
+	</script>
+</head>
+<body>
+	<div id="div1" style="width: 400px; height: 400px; background-color: gray; position: absolute; left: 100px; top: 100px; overflow: hidden;">
+		<div id="div2" style="width: 20px; height: 20px; background: red; position: absolute; top: 1px; left: 1px;"></div>
+		<div id="div3" style="width: 20px; height: 20px; background: blue; position: absolute; top: 1px; left: 1px;"></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+ 
+<!--
+	<style>
+		
+	</style>
+	<script>
+		window.onload = function() {
+			var box = document.getElementById("box");
+			var i = 1;
+			var fontTmp = 5;
+			setInterval(function() {
+				var colors = ["red", "yellow", "green", "black", "blue"];
+				box.style.color = colors[i++]; 
+				box.style.fontSize = numFromStr(box.style.fontSize) + fontTmp +"px";
+				if(i==colors.length) {
+					i = 0;
+					fontTmp *= -1;
+				}
+			}, 50)
+		}
+		function numFromStr(str) {
+			var index = str.indexOf("px");
+			var num = Number(str.substring(0, index));
+			return num;
+		}
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 400px; height: 400px; background: pink; font-size: 12px; color: red;">看我72变</div>
+</body>-->

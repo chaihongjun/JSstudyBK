@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			document.onkeydown = function(evt) {
+				var e = evt || window.event;
+				console.log(e.keyCode); //a: 65, 左上右下:37,38,39,40
+				
+				var str = document.getElementById("box");
+				
+				if (e.keyCode==38) {
+					str.style.top = (numFromStr(box.style.top)-5)+"px"; //上
+				}
+				if (e.keyCode==39) {
+					str.style.left = (numFromStr(box.style.left)+5)+"px"; //右
+				}
+				if (e.keyCode==40) {
+					str.style.top = (numFromStr(box.style.top)+5)+"px"; //下
+				}
+				if (e.keyCode==37) {
+					str.style.left = (numFromStr(box.style.left)-5)+"px"; //左
+				}
+				
+				
+				if (e.keyCode==87) {
+					str.style.top = (numFromStr(box.style.top)-5)+"px"; //上w
+				}
+				if (e.keyCode==68) {
+					str.style.left = (numFromStr(box.style.left)+5)+"px"; //右d
+				}
+				if (e.keyCode==83) {
+					str.style.top = (numFromStr(box.style.top)+5)+"px"; //下s
+				}
+				if (e.keyCode==65) {
+					str.style.left = (numFromStr(box.style.left)-5)+"px"; //左a
+				}
+				
+				if (e.keyCode==38&&e.ctrlKey) {
+					str.style.top = (numFromStr(box.style.top)-15)+"px"; //ctrl+上
+				}
+				if (e.keyCode==39&&e.ctrlKey) {
+					str.style.left = (numFromStr(box.style.left)+15)+"px"; //ctrl+右
+				}
+				if (e.keyCode==40&&e.ctrlKey) {
+					str.style.top = (numFromStr(box.style.top)+15)+"px"; //ctrl+下
+				}
+				if (e.keyCode==37&&e.ctrlKey) {
+					str.style.left = (numFromStr(box.style.left)-15)+"px"; //ctrl+左
+				}
+				
+				//ctrl+c
+				if (e.ctrlKey && e.keyCode==67) {
+					str.style.background = "rgb(" + parseInt(Math.random()*256) +","+parseInt(Math.random()*256) +","+parseInt(Math.random()*256) +")"
+				}
+				
+				//ctrl+shift+r 
+				if (e.keyCode==82&&e.ctrlKey&&e.shiftKey) {
+					str.style.background = "magenta";
+				}
+			}
+			
+			function numFromStr(str){   //去掉单位“px”的函数
+				var index=str.indexOf("px");
+				var num=Number(str.substring(0,index));//截取字符串
+				return num;	
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box" style="width: 200px;height: 200px;position: absolute;left: 300px;top: 200px;background: magenta;"></div>
+	</body>
+</html>

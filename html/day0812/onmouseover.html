@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var box = document.getElementById("box");
+//				box.onmouseover = function(){
+//					box.innerHTML = "亲爱的 我爱你！";
+//				}
+//				
+//				box.onmouseout = function(){
+//					box.innerHTML = "对不起开玩笑的！";
+//				}
+				box.onmousemove = function(){
+					//box.style.backgroundColor = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+					//var r = parseInt(Math.random()*256);
+					var r = parseInt(Math.random()*256);
+					var g = parseInt(Math.random()*256);
+					var b = parseInt(Math.random()*256);
+					
+					this.style.background = "rgb("+r+","+g+","+b+")";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box" style="width: 200px;height: 200px;background: magenta;"></div>
+	</body>
+</html>

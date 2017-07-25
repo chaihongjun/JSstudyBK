@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}	
+			
+		</style>
+		
+		<script type="text/javascript">
+		/*
+		倒着推不就好了
+		1 2 3 4 5 6 7 8 9 10 11//给的
+		0 1 2 3 4 0 1 2 3 4 0//得到的
+		
+		可以看出得到的是%5
+		
+		然后将得到的反%5推测
+		
+		可以得到
+		0 1 2 3 4 5 6 7 8 9 10 
+		
+		与最初的1 2 3 4 5 6 7 8 9 10比较发现
+		每一位少了1
+		将过程转换成公式就是（i-1）%5
+		
+	
+		*/
+		
+				
+		
+		
+			/*
+			setInterval (function(){
+				if(i > color.length) i=0;
+				box.style.background = arr[i++];	
+				},1000)
+			}
+		*/
+		
+		
+		/*
+		window.onload = function() {
+			var box = document.getElementById("box");
+			var btn = document.getElementById("btn");
+			btn.onclick = function() {
+				var colors = ["red", "blue", "yellow", "green", "black"];
+				var i=1;
+				setInterval(function(){
+					box.style.backgroundColor = colors[i];
+					if(i == 4) {		//当下标加到==4时 进行判断：强制转换成-1； 再i++从下标为0开始又一次循环。
+						i=-1;
+					}
+					i++;
+				}, 1000)
+			}
+		}
+		*/
+		
+		window.onload = function() {
+				var box = document.getElementById("box");
+				var btn = document.getElementById("btn");
+				btn.onclick = function() {
+					var colors = ["red", "blue", "yellow", "green", "black"];
+					var i=1;
+					setInterval(function(){
+						box.style.backgroundColor = colors[i];
+						i++;
+						if(i == 5) {
+							i=0;
+						}
+					}, 1000)
+				}
+			}
+
+
+					
+		</script>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		<button id="btn">换色龙</button>
+	</body>
+</html>

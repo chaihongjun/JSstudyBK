@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+		
+			function demo(){
+				
+				var userName = document.getElementById("userName");
+				var span1 = document.getElementById("span1");
+				
+				var xhr;
+				if (window.XMLHttpRequest) {
+					xhr = new XMLHttpRequest();
+				}else{
+					xhr = new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				
+				//var url = "txt.txt";
+				var url = "txt.txt?x="+new Date().getTime(); //去除ie的上次记忆
+				xhr.open("get",url,true);
+				
+				xhr.send();
+				
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var str = xhr.responseText;
+						//alert(str);
+						//将对象类型的数据通过eval();来访问。
+	//					var obj = eval("("+str+")");
+						//alert(obj.c); //alert(obj["c"]);
+	//					=============
+					
+						//数组转换成可访问的！
+						var arr = eval("("+str+")").list;
+						var flag = false;
+						//alert(arr);
+						//alert(arr[0]);
+						var listUsername = userName.value;
+						
+						for (var i=0;i<arr.length;i++) {
+							if (arr[i] == listUsername ) {
+								flag = true;
+								break;//也可以通过赋值实现跳出循环：i=arr.length;
+							}
+						}
+						/*
+						if (flag) {
+							span1.innerHTML = "<font color='red'>用户名已经被暂用</font>";
+						}else{
+							span1.innerHTML = "<font color='green'>用户名可以使用</font>";
+						}
+						*/
+						span1.innerHTML = (flag)?"<font color='red'>用户名已经被暂用</font>":"<font color='green'>用户名可以使用</font>";
+					}
+				}
+			}
+		
+		
+		</script>
+	</head>
+	<body>
+		用户名：
+		<input type="text" id="userName" onblur="demo()" />
+		<span id="span1"></span>
+		
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script>
+			$(function(){
+				
+				$("div").click(function(){
+					
+					$("div").filter(function(index){
+						console.log(this);
+						
+						//console.log($("ol",this).length);
+						if ($("ol",this).length == 0) {
+							return true;
+						}
+						
+					}).css("color","red");
+					
+				});
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div>111</div>
+		<div>222</div>
+		
+		<div><ol><li>3111</li> </ol> <ol><li>3222</li> </ol></div>
+		
+		<div>444</div>
+		<div>555<ol><li>5111</li> </ol></div>
+		
+		
+	</body>
+</html>

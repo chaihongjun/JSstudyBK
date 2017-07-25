@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>练习_获取学生信息</title>
+		<script>
+		
+			/*
+			 2, 实现一个个人信息页面   姓名  年龄  学历  专业, 可以获取到输入的信息, 点击保存按钮以后, 弹出信息 
+			   	要求: 分别使用通过id, tagname, name三种获取节点的方式实现
+			*/
+			
+			function saveClick() {
+				
+				//通过Id获取节点
+				// var oDiv1 = document.getElementById("box1");
+				// var oDiv2 = document.getElementById("box2");
+				// var oDiv3 = document.getElementById("box3");
+				// var oDiv4 = document.getElementById("box4");
+				// console.log("姓名:" + oDiv1.value + ",年龄:" + oDiv2.value + ",学历:" + oDiv3.value + ",专业:" + oDiv4.value);
+				
+				//通过tagname获取节点
+				// var userInfoList1 = document.getElementsByTagName("input");
+				// var keyArray1 = ["姓名:", "年龄:", "学历:", "专业:"];
+				// var str1 = "";
+				// for (var i = 0; i < userInfoList1.length; i++) {
+				// 	str1 += keyArray1[i] + userInfoList1[i].value + ",";
+				// }
+				// console.log(str1);
+				
+				//通过name获取节点
+				var userInfoList2 = document.getElementsByName("box_input");
+				var keyArray2 = ["姓名:", "年龄:", "学历:", "专业:"];
+				var str2 = new String();
+				for (var i = 0; i < userInfoList2.length; i++) {
+					str2 += keyArray2[i] + userInfoList2[i].value + ",";
+				}
+				console.log(str2);
+			}
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<input id="box1" name="box_input" placeholder="姓名" />
+		<input id="box2" name="box_input" placeholder="年龄" />
+		<input id="box3" name="box_input" placeholder="学历" />
+		<input id="box4" name="box_input" placeholder="专业" />
+		<button onClick="saveClick()">保存</button>
+	</body>
+
+</html>

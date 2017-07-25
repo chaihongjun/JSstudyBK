@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			ul>li{background: magenta;width: 100px;height: 30px;float: left;}
+			ul>.select{background: mediumaquamarine;}
+			
+			
+			ol>li{background: mediumaquamarine;width: 300px;height: 300px;display: none;}
+			ol>.select{display: block;}
+			
+			
+			
+		</style>
+		<script>
+			window.onload = function(){
+				
+				//var tab = document.getElementsByTagName("ul")[0].children;
+				//var item = document.getElementsByTagName("ol")[0].children;
+				
+				var tab = document.getElementsByClassName("select_ul")[0].children;
+				
+				var item = document.getElementsByClassName("select_ol")[0].children;
+				
+				//console.log(tab);
+				//console.log(item);
+				
+				for (var i=0;i<tab.length;i++) {
+					tab[i].index = i;
+					
+					tab[i].onclick = function(){
+						
+						for (var i=0;i<tab.length;i++) {
+							tab[i].className = "";
+							item[i].className = "";
+						}
+						
+						tab[this.index].className = "select";
+						item[this.index].className = "select";
+					}
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<ul class="select_ul">
+			<li class="select">aaaaa</li>
+			<li>bbbbbbbb</li>
+			<li>ccccccccc</li>
+		</ul>
+		
+		<ol class="select_ol">
+			<li class="select">1111111111111</li>
+			<li>22222222222</li>
+			<li>33333333333333333</li>
+		</ul>
+	</body>
+</html>
+
+
+
+<!--
+for (var i=0;i<tab.length;i++) {
+					tab[i].onmouseover = function(){
+						var ol = this.children[0];
+						ol.style.display = "block";
+					}
+					
+				}-->

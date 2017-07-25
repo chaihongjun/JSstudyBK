@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload =function(){
+				
+				var str = document.getElementById("first");
+				var str1 = document.getElementById("pox");
+				
+				str.onmouseover = function(){
+					str1.style.display = "block";
+				}
+				str.onmouseout = function(){
+					str1.style.display = "none";
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul  id="first" style="background: magenta;">
+			
+			<li>菜单
+				<ul id="pox" style="background: mediumaquamarine;display: none;">
+					<li>菜单1</li>
+					<li>菜单2</li>
+					<li>菜单3</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

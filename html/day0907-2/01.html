@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	</style>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+	/*function callback(o){
+		console.log(o.a);
+	}*/
+		
+		$(function(){
+			//$.get()
+			//$.post()
+			$.ajax({
+				url:"1.txt?b=123&c=456&d=abc",
+				//data:{"a":"xxx"},
+				type:'GET',
+				success:function(response, status, xhr){
+					//alert(response);
+					//console.log(xhr)
+				},
+				error:function(xhr, status){
+					//console.log(status)
+				},
+				dataType:"jsonp",
+				jsonp:"callback"
+			});
+			
+			});
+	</script>
+</head>
+	
+
+	
+<body>
+	<div class="box"></div>
+</body>
+</html>

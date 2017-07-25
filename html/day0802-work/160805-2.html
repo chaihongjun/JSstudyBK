@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			/*
+			有一堆桃子不知数目，猴子第一天吃掉一半，觉得不过瘾，又多吃了一只，
+			第二天照此办法，吃掉剩下桃子的一半另加一只，天天如此，到第m(m <= 10)天早上，
+			猴子发现只剩一只桃子了，问这堆桃子原来有多少只？
+		*/
+
+		// 10天前还有一堆桃子
+		// 9 10的一半还多一个
+		// f(9) = f(10)/2-1
+		// f(10) = (f(9)+1)*2
+		// f(n) = (f(n-1)+1)*2
+		// n=1 f(1)=1
+		
+		/*
+		 
+		 	function numTao(n) {
+				if(n==1) {
+					return 1;
+				}
+				return (numTao(n-1)+1)*2;
+			}
+		*/
+		/*
+		var myarr = [1,2,3,4,5,6,7,8,9];
+		
+		for (i=0;i<=myarr.length-1;i++) {
+			document.write(myarr[i]+"<br />");
+		}
+		 
+		*/
+		
+		
+		/*
+		var myarr = [1,2,3,4,5,6,7,8,9];
+		
+		function arr(arr1){
+				for (i=arr1.length-1;i>=0;i--) {
+					
+				document.write(arr1[i]+"<br />");
+			}
+		}
+		arr(myarr);
+		*/
+		
+		/*
+		var myarr = [1,2,3,4,5,6,7,8,9];
+		
+		function arr(arr1){
+			document.write(arr1);
+			
+			var temp;
+			temp=arr1[1];
+			arr1[1]=arr1[4];
+			arr1[4]=temp;
+			}
+		document.write(arr);
+		}
+		arr(myarr);
+		
+		*/
+		
+		/*
+			写一个hs
+			求数组中所有元素的和；
+			让数组中的元素交换位置（重要） 交换第2个元素和第4个元素的位置
+			求数组的最大数和最小数（重要） 
+			求数组的最小数的下标（重要）
+			定义一个数组，数组中每个值是该值的下标的平方
+		*/
+		/*
+		var arr1 = [6,7,2,3,4,5,8,0,9];
+		var max=arr1[0];
+		var min=arr1[0];
+		var xiab=0;
+		function arr(arr1){
+			for (i=arr1.length-1;i>=0;i--) {
+				if (max < arr1[i]) {
+					max = arr1[i];
+				}
+				if (min > arr1[i]) {
+					min = arr1[i];
+					xiab=i;
+				}
+			}
+			document.write("最大数为："+max+"<br />");
+			document.write("最小数为："+min+"<br />");
+			document.write("最小数下标为："+xiab);
+		}
+		arr(arr1);
+		*/
+		
+		/*
+		var arr = [1,2,3,4,5];
+	
+		
+		for (i=0; i<=arr.length-1;i++) {
+			
+			arr[]=arr[i]*arr[i];
+		}
+		
+		document.write(arr);
+		
+		*/
+		
+		/*
+		// for(变量 in 集合){}
+		var arr = [1,2,3,4,5];
+		var sum=0;
+		
+		for(var i in arr) {
+			sum += arr[i];
+		}
+		
+		alert(sum);
+
+		*/
+		
+		/*
+		
+		var arr = [1,2,3,3,6];
+		var sum=0;
+		
+		for (var i in arr) {
+			sum+=arr[i];
+		}
+		document.write(sum);
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

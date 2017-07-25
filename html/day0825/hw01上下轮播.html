@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上下轮播</title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			#box{width: 810px;height: 320px;overflow: hidden;margin: 0 auto;position: relative;}
+			#box>ul{width: 810px;height: 1600px;position: absolute;top: 0px;}
+			#box>ul>li{width: 810px;height: 320px;}
+			
+			#box>ol{position: absolute;bottom: 10px;right: 0px;}
+			#box>ol>li{width: 15px;height: 15px;line-height: 15px;border-radius: 10px; background:lightskyblue;float: left;margin-right: 10px;text-align: center;cursor: pointer;}
+			
+			.selected{background: red!important;}
+			
+		</style>
+		<script type="text/javascript" src="js/startMove.js" ></script>
+		<script>
+			window.onload = function(){
+				var ul = document.getElementsByTagName("ul")[0];
+				var ol = document.getElementsByTagName("ol")[0];
+				var box = document.getElementById("box");
+				var aLi = ol.children;
+				
+				var now=0;
+				
+				for (var i=0;i<aLi.length;i++) {
+					var li = aLi[i];
+					li.index = i;
+					li.onclick = function(){
+						now=this.index;
+						tab();
+					}
+				}
+				
+				//1
+				var timer = setInterval(function(){
+					now++;
+					if (now==aLi.length) {
+						now=0;
+					}
+					tab();
+				},1000);
+				
+				box.onmouseover = function(){
+						clearInterval(timer);
+				}
+				
+				box.onmouseout = function(){
+					timer = setInterval(function(){
+						now++;
+						if (now==aLi.length) {
+							now=0;
+						}
+						tab();
+					},1000);
+				}
+				
+				
+				//2封装成函数
+				/*
+				function next(){
+					now++;
+					if (now>4) {
+						now=0;
+					}
+					tab();
+				}
+				var timer = setInterval(next,1000);
+				
+				box.onmouseover = function(){
+					clearInterval(timer);
+				}
+				
+				box.onmouseout = function(){
+					timer = setInterval(next,1000);
+				}
+				
+				*/
+				
+				function tab(){
+					for (var i=0;i<aLi.length;i++) {
+						var li = aLi[i];
+						li.className = "";
+					}
+					aLi[now].className ="selected";
+					//ul.style.top = -320*now+"px";
+					startMove(ul, {top:-320*now});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li><img src="images/001.jpg" /> </li>
+				<li><img src="images/002.jpg" /> </li>
+				<li><img src="images/003.jpg" /> </li>
+				<li><img src="images/004.jpg" /> </li>
+				<li><img src="images/001.jpg" /> </li>
+			</ul>
+			<ol>
+				<li class="selected">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+		</div>
+	</body>
+</html>

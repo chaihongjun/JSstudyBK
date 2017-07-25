@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			marquee{background: red;}
+		</style>
+	</head>
+	<body>
+		<div align="center">
+		<marquee scrollamount="4" height="30" width="500" bgcolor="#FF0000" onmouseover=this.stop() onmouseout=this.start() >
+		IT资讯交流网页
+		</marquee>
+		</div>
+	</body>
+</html>
+
+
+<!--11-分析->
+<!--实现滚动
+不用那么复杂的代码行不
+这个效果一段简单的代码就搞定了
+
+<div align="center">
+<marquee scrollamount="4" width="500" onmouseover=this.stop() onmouseout=this.start() >
+IT资讯交流网页
+</marquee>
+</div>
+
+还可以加别的属性参数
+
+direction 表示滚动的方向，值可以是left，right，up，down，默认为left
+behavior 表示滚动的方式，值可以是scroll（连续滚动）slide（滑动一次）alternate（来回滚动）
+loop 表示循环的次数，值是正整数，默认为无限循环
+scrollamount 表示运动速度，值是正整数，默认为6
+scrolldelay 表示停顿时间，值是正整数，默认为0，单位是毫秒
+valign 表示元素的垂直对齐方式，值可以是top，middle，bottom，默认为middle
+align 表示元素的水平对齐方式，值可以是left，center，right，默认为left
+bgcolor 表示运动区域的背景色，值是16进制的RGB颜色，默认为白色
+height、width 表示运动区域的高度和宽度，值是正整数（单位是像素）或百分数，默认width=100% height为标签内元素的高度
+hspace、vspace 表示元素到区域边界的水平距离和垂直距离，值是正整数，单位是像素。
+ onmouseover=this.stop() onmouseout=this.start() 表示当鼠标以上区域的时候滚动停止，当鼠标移开的时候又继续滚动。
+ -->
+
+
+
+
+
+<!--22--分析--->
+
+
+<!--
+marquee实现首尾相连循环滚动效果（）： 
+
+代码如下:
+<marquee behavior="scroll" contenteditable="true" onstart="this.firstChild.innerHTML+=this.firstChild.innerHTML;" scrollamount="3" width="100" onmouseover="this.stop();" onmouseout="this.start();"> 
+这里是要滚动的内容 
+</marquee>-->

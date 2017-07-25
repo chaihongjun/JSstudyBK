@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>onscroll 事件在元素滚动条在滚动时触发。</title>
+		<style>
+			#demo1{
+				height: 1000px;
+			}
+			#demo2{
+				border: 1px solid black;
+			    width: 200px;
+			    height: 100px;
+			    overflow: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo1"></div>
+		<div id="demo2" onscroll="myFunction()">
+			In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+			<br>
+			<br>
+			'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world haven't had the advantages that you've had.'</div>
+			<p>
+				滚动 
+				<span id="demo">0</span> 
+				次。
+			</p>
+		</div>
+		
+		
+		<script>
+			//onscroll 事件在元素滚动条在滚动时触发。
+			
+			window.onscroll = function(){
+				//document.write("滚动了！");
+				var top1 = document.documentElement.scrollTop || document.body.scrollTop;
+				//document.write(top1);
+				console.log(top1);
+			}
+			
+			x = 0;
+			function myFunction() {
+			    document.getElementById("demo").innerHTML = x += 1;
+			}
+		</script>
+	</body>
+</html>

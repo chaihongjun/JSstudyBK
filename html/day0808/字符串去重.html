@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//1去重字符串
+	var str1 = prompt("输入任意字母串：");
+	function tongJi1(str){
+		var result = "",t = "";
+		while(str != "" )
+		{
+			var getStr = str[0];
+			str = str.replace(new RegExp(getStr,"g"),"");		
+			result = result.concat(getStr);
+		}
+		return result;
+	}
+	alert(tongJi1(str1));
+	
+	//2排序+去重字符串
+	var str = "hjshjshdjuwiuasdqweas";
+	
+	function quChong(str){
+		var strArr = str.split("");
+		strArr.sort();
+		var resultArr = [];
+		var strTmp = "";
+		for (var i in strArr) {
+			if (strArr[i] != strTmp) {
+				resultArr.push(strArr[i]);
+				strTmp = strArr[i];
+			}
+		}
+		return resultArr;
+	}
+	console.log(quChong(str));
+	console.log(quChong(str).toString());
+	
+</script>

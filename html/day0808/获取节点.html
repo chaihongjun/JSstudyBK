@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+			var box = document.getElementById("box");
+			//var pNode = document.createElement("p");
+			//pNode.innerHTML = "我是新加入的";
+			//box.appendChild(pNode);
+
+			//var textNode = document.createTextNode("我是新插入的文本节点");
+			//var box = document.getElementById("box");
+			//box.appendChild(textNode);
+
+			//p p1 p2 
+
+			box.appendChild(createNodeWithInfo("p", "<strong>aaa<strong>"));
+			}
+			function createNodeWithInfo(nodeName, nodeHTML) {
+				var eleNode = document.createElement(nodeName);
+				//var textNode = document.createTextNode(nodeValue);
+				eleNode.innerHTML = nodeHTML;
+				//eleNode.appendChild(textNode);;
+				return eleNode;
+			}
+			
+			
+			
+			/*
+			function insertAfter(newNode, node) {
+				var parentNode = node.parentNode;
+				if(parentNode.lastChild == node) {
+					parentNode.appendChild(newNode);
+				} else {
+					var nextSibling = node.nextSibling;
+					parentNode.insertBefore(newNode, nextSibling);
+				}
+			}
+			*/
+			
+			
+			/*
+			function getInner(obj){
+                if(typeof obj.innerText =="undefined"){
+                    return obj.textContent;
+                }else{
+                    return obj.innerText;//为了防止火狐老版本不支持innerText，所以做一下兼容
+                }
+            }
+			*/
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box" title="标题" class="pox" style="position: absolute; color: red;">
+			<em>我是斜体</em>
+			测试DIV1
+			<em>我是斜体</em>
+			测试DIV2<em>我是斜体</em>
+		</div>
+
+	</body>
+</html>

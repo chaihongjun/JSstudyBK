@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			td>img{width: 50px;height: 50px;}
+			div>img{width: 400px;height: 400px;}
+		</style>
+		<script>
+			window.onload = function(){
+				
+				var Imgs =  document.getElementsByTagName("img");
+				
+				for (var i=0;i<Imgs.length;i++) {
+					Imgs[i].onclick = function(){
+						Imgs[0].src = this.src;   //让当前点击的图片显示在div中    this.src
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div><img src="imgs/1kkk.jpg" /> </div>
+		<table>
+			<tr>
+				<td><img src="imgs/1kkk.jpg" /> </td>
+				<td><img src="imgs/2eee.jpg" /> </td>
+				<td><img src="imgs/3fff.jpg" /> </td>
+				<td><img src="imgs/bv.jpg" /> </td>
+				<td><img src="imgs/cv.jpg" /> </td>
+				<td><img src="imgs/hhj.jpg" /> </td>
+				<td><img src="imgs/rt.jpg" /> </td>
+				<td><img src="imgs/rtd.jpg" /> </td>
+				<td><img src="imgs/tr.jpg" /> </td>
+			</tr>
+		</table>
+	</body>
+</html>

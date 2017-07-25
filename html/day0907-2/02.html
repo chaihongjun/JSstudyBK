@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;}
+			ul{width: 200px;height: 30px;border: 1px solid #ccc;margin: 50px auto;position: relative;overflow: hidden;}
+			li{width: 200px;height: 30px;line-height: 30px;position: absolute;left: 200px;top: 0;background: magenta;list-style: none;}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script>
+		
+			$(function(){
+				
+				setInterval(function(){
+					
+					$("li").animate({
+						"left":-200
+					},2000,function(){
+						
+						var li = $("li:first");
+						var position = li.position();
+						//console.log(position);   //一个对象
+						var le = parseInt(position.left);
+						this.index=le;
+						//console.log(le);
+						if (le==-200) {
+							index=200;
+						}
+					});
+					
+					
+				},2000);
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>哈哈哈哈哈哈哈</li>
+		</ul>
+	</body>
+</html>

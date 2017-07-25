@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+#div1{ position:absolute; width:50px; height:50px; background:red; top: 320px; left:450px;border: 5px solid magenta;border-radius: 50px;}
+#div2{ position:absolute; width:200px; height:200px; background:blue; left:450px;top: 100px;opacity: 0.1;}
+</style>
+<script type="text/javascript" src="js/startMove.js" ></script>
+
+<script>
+window.onload=function(){
+	
+    var div1=document.getElementById("div1");
+    div1.onmouseover = function(){
+        startMove(div1,{"width":300,"height":300,"borderLeftWidth":50,"borderTopWidth":50,"borderRightWidth":50,"borderBottomWidth":50,"borderTopLeftRadius":300},function(){
+        	//startMove(div1,{top:500});
+        });
+    }
+    
+    div1.onmouseout = function(){
+        //startMove(div1,"width",50);
+       startMove(div1,{"width":50,"height":50,"borderLeftWidth":5,"borderTopWidth":5,"borderRightWidth":5,"borderBottomWidth":5});
+    }
+
+
+    var div2=document.getElementById("div2");
+    div2.onmouseover = function(){
+        startMove(div2,"opacity",100);
+    }
+    div2.onmouseout = function(){
+        startMove(div2,"opacity",50);
+    }
+
+}
+
+</script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

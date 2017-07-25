@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title></title>
+	
+		<style>
+			*{margin:0;padding:0;}
+			#box{width:1062px;height: 633px;border: 1px solid #ccc;margin: 100px auto;}
+			.left{border:1px solid gray; width:415px; height:502px; left:10px; top:70px; position:absolute;}
+			.right{border:1px solid gray; width:602px; height:502px; left:448px; top:70px; position:absolute;}
+			.option{ margin-top:5px;}
+			.option>img{border:1px solid gray; width:74px; height:74px; margin:3px;}
+			.bigger{ position:relative; left:5px; top:5px; border:1px solid gray; width:403px; height:402px;}
+			.bigger>img{width:403px; height:402px; }
+			.bigger>div{width:100px; height:100px; background:yellow; opacity:0.5; position:absolute; top:0; left:0;}
+			.big{border:1px solid gray; width:403px; height:402px; position:relative; left:448px; top:6px; overflow:hidden;}
+			.big>img{ position:absolute; top:0; left:0; width:1615px; height:1615px;}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script>
+			var json={
+				list:[
+					{"id":"1", "title":"标题", "content":"内容", "price":"100", "pic":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"]},
+					//{"id":"2", "title":"标题2", "content":"内容2", "price":"200", "pic":["5.jpg","6.jpg","7.jpg","8.jpg"]}
+				]
+			}
+			$(function(){
+				//获取数据
+				var data=json.list[0];
+				
+				
+				
+				//获取元素对象
+				var img=$(".left>div>img");
+				var glass=$(".left>div>div");
+				var option=$(".left>div:eq(1)");
+				
+				//添加小图片
+				var pics=data.pic;
+					for(var i=0; i<pics.length; i++){
+						option.append("<img src='images/"+pics[i]+"' />")
+					}
+				//在小图片上绑定单击事件，当单击时，大图片发生改变
+				$(".option>img").bind("click", function(){
+					img.attr("src", $(this).attr("src"));
+					$(".big>img").attr("src", $(this).attr("src"));
+				});
+				//添加大图片
+				img.attr("src", "images/"+pics[0]);
+				//添加默认放大镜里的图片
+				$(".big>img").attr("src", "images/"+pics[0]);
+				//鼠标放到大图片上时，触发放大镜效果
+				$(".bigger").mousemove(function(e){
+					var offset=$(this).offset();
+					var x=e.clientX-offset.left;
+					var y=e.clientY-offset.top;
+					x-=50;
+					y-=50;
+					if(x<0)x=0;
+					if(x>303)x=303;
+					if(y<0)y=0;
+					if(y>302)y=302;	
+					$(".bigger>div").css({
+						left:x,
+						top:y
+					});		
+					$(".big>img").css({
+						left:-4*x,
+						top:-4*y
+					});
+					//console.log( e.clientX-offset.left );
+				});
+				
+				
+				
+				$(".bigger").mouseover(function(){
+					$(".bigger>div").show();
+					$(".big").show();
+				});
+				$(".bigger").mouseout(function(){
+					$(".bigger>div").hide();
+					$(".big").hide();
+				});
+				$(".bigger>div").hide();
+				$(".big").hide();
+			});
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		<div id="box" style="position:relative;">
+			<p style="height: 70px;line-height: 44px;">蜜芽首页 > 孕产用品-孕妇装/孕妇裙 > 女之御 2016新款纯手工刺绣孕妇连衣裙 白</p>
+			<div class="left">
+				<div class="bigger">
+					<img />
+					<div></div>
+				</div>
+				<div class="option" style="padding-left: 3px;"></div>
+			</div>
+			<div class="right">
+				<h3 style="font-size: 16px;font-weight: bold;">女之御 2016新款纯手工刺绣孕妇连衣裙 白</h3>
+				<p style="font-size: 12px;">女之御孕装秋季上新特惠 纯棉面料 尺码偏大 建议小一码</p>
+				<p style="font-size: 12px;">价格：100元</p>
+				<p>商品描述商品描述商品描述商品描述</p>
+			</div>
+			<div class="big">
+				<img />
+			</div>
+		</div>
+	</body>
+</html>

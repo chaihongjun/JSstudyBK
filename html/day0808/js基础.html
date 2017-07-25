@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		
+			
+			/*
+				1, 已知有两个字符串str1 = ‘hello’ str2 = ‘world’,将两个字符串组成一个;
+				2, 已知字符串str = “I love BeiJing”,找出love的范围
+				3, 已知字符串 str = “I hate BeiJing!”,提取第3个字符到第5个字符
+				4, 将字符串str = “When I was young, I love a girl in neighbor class.”中,从young提取到girl。但是不许数
+			*/
+			/*	
+			str1 = "hello";
+			str2 = "world";
+			var str = str1+str2;
+			console.log(str);
+			console.log(str1.concat(str2));
+			
+			
+			str = "I love BeiJing";
+			var ss = str.indexOf("love");
+			var ss1 = "love";
+			var dd = ss1.length;
+			//var oo = ss+dd;
+			console.log("indexOf()方法找到love首位置下标："+ss+"   .length属性得到love字符的长度："+dd);
+			
+			*/
+			
+			
+			/*
+			
+			str = "When I was young, I love a girl in neighbor class.";
+			
+			var sr1 = str.indexOf("young");
+			var sr2 = str.indexOf("girl");
+			var ss = "girl";
+			var len = sr2+ss.length;
+			var jiequ = str.substring(sr1,len);
+			alert(jiequ);
+			
+			*/
+			
+			/*
+			//使字符串中单词用空格隔开
+			var str="HelloMyWorld";
+			
+			function seperate(str){
+				for(var i=0;i<str.length;i++){
+					var n=str.charCodeAt(i);
+					
+					if(n>=65&&n<=90){
+					 str[i]=String.fromCharCode(n-25);
+					}
+					document.write(str[i]);
+				}
+			}
+			seperate(str);
+				
+			*/
+				 
+		</script>
+	</head>
+	<body>
+		<!--<input type="text" placeholder="用户名" id="uName" onblur="checkUserName()" />
+		<input type="text" placeholder="密码" id="pwd" onblur="checkPwd()" />
+		<button id="btn" onclick="checkAll()"> 登录 </button>
+		<p id="error"></p>-->
+	</body>
+</html>

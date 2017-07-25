@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#box1{position: relative; width: 400px;height: 400px;float: left;}
+			#glass{width: 200px;height: 200px;background: magenta; opacity: 0.3;position: absolute;left: 0;top: 0;}
+			
+			#box2{position: relative;width: 400px;height: 400px;overflow: hidden;float: left;margin-left: 20px;}
+			
+			#img2{position: absolute;left: 0;top: 0;}
+			
+		</style>
+		<script>
+			window.onload = function(){
+				
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+				var glass = document.getElementById("glass");
+				var img2 = document.getElementById("img2");
+				img2.style.display = "none";
+				box2.style.display = "none";
+				
+				box1.onmousemove = function(event){
+					event = event||window.event;
+					//求鼠标在box1上的x、y轴
+					var x= event.clientX-box1.offsetLeft;
+					var y= event.clientY-box1.offsetTop;
+					//鼠标在放大镜上应该居中显示
+					x-=100;
+					y-=100;
+					//放大镜在box1上的边界处理
+					if (x<=0) x=0;
+					if (y<=0) y=0; 
+					if (x>=200) x=200; 
+					if (y>=200) y=200; 
+					//更改放大镜的坐标位置
+					glass.style.left = x+"px";
+					glass.style.top = y+"px";
+					//更改大图片的坐标位置
+					img2.style.left = -2*x+"px";
+					img2.style.top = -2*y+"px";
+					
+				}
+					box1.onmouseover = function(){
+						img2.style.display = "block";
+						box2.style.display = "block";
+					}
+					box1.onmouseout = function(){
+						img2.style.display = "none";
+						box2.style.display = "none";
+					}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<img src="img/0.jpg" width="400" height="400"  />
+			<div id="glass"></div>
+		</div>
+		<div id="box2">
+			<img id="img2" src="img/0.jpg" width="800" height="800"/>
+		</div>
+	</body>
+</html>

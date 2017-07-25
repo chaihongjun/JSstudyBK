@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				background: #a1c1d1;
+				font: 12px "微软雅黑";
+			}
+			
+			.box {
+				width: 220px;
+				margin: 0 auto;
+				padding: 10px;
+				background: #ddeeff;
+				border: 1px solid #DDEEFF;
+				box-shadow: 0 0 10px 0 #888;
+				border-radius: 6px;
+			}
+		</style>
+		
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				
+				var username = document.getElementById("username");
+				var password1 = document.getElementById("password");
+				
+				var checkbox1 = document.getElementById("checkbox");
+				
+				var denglu = document.getElementById("denglu"); 
+				var qingkong = document.getElementById("qingkong");
+				
+				
+				
+				username.value = getCookie("username");
+				password1.value = getCookie("password1");
+				
+				
+				denglu.onclick = function () {
+					if (checkbox1.checked) {
+						setCookie("username",username.value,10);
+						setCookie("password1",password1.value,10);
+					}else{
+						setCookie("username",username.value);
+						setCookie("password1",password1.value);
+					}
+				}
+				
+				qingkong.onclick = function () {
+					username.value = "";
+					password1.value = "";
+				}
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		<form action="" method="get">
+			<div class="box">
+				<label>账号</label>
+				<input type="text" id="username" class="input-text" />
+				<br /><br />
+				
+				<label>密码</label>
+				<input type="text" id="password" class="input-text" />
+				<br /> <br />
+				
+				<input type="checkbox" id="checkbox" class="checkbox" checked/>
+				<label>10天内免登录</label>
+				<br /> <br />
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="submit" value="登录" id="denglu"/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="清空" id="qingkong"/>
+				
+				
+			</div>
+		</form>
+		
+		
+		
+	</body>
+</html>

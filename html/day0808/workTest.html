@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			 //2、将字符中单词用空格隔开！
+//var str = "HelloMyWorldHrtyuKdfgMertyuQwertOsdf!";
+//for (var i=0;i<=str.length-1;i++) {
+//	if (str[i] >= "A" && str[i] <= "Z") {
+//		
+//		if (i == 0) {
+//			document.write(str[i]);
+//		} else{
+//			var st = new Array();
+//			var st = str.charCodeAt(i);
+//			//alert(st);
+//			var st1 = st+32;
+//			//alert(st1);
+//			var c = String.fromCharCode(st1);
+//			document.write(" "+ c);
+//		}
+//	}else{
+//		document.write(str[i]);
+//	}
+//}
+			
+			
+			
+			/*
+			var str = "Yes,she**is%%%%%***%%%%my@love.";
+			var count=0;
+			var x=0;
+			var arr = new Array();
+			
+			for (var i=0;i<=str.length-1;i++) {
+				
+				if ((str[i] >= "a" && str[i] <= "z")||(str[i] >= "A" && str[i] <= "Z")) {
+					
+					document.write(str[i]);
+				}else{
+					document.write(" ");
+					
+				}
+				
+				if (str[i] == "" && (str[i+1] >= "a"&& str[i+1] <= "z")) {
+						count++;
+				}
+			}
+			
+			document.write("<br />"+count);
+			*/
+			
+	
+			
+			/*
+			var str = "Yes,she**is%%my@love.";
+			var str1 = "";
+			for(var i=0; i<str.length; i++) {
+				var cha = str.charAt(i);
+				if(!((cha>='A'&&cha<='Z')||(cha>='a'&&cha<='z'))) {
+					str1 += " ";
+				} else {
+					str1 += cha;
+				}
+			}
+			alert(str1.split(" ").length);
+	
+			*/
+			
+			
+			
+			
+			
+//2、生成随机数四位 包括字母在内！
+var str = "";
+function rand(n){
+		for (var i=0;i<n;i++) {
+			
+			var ss = parseInt(Math.random()*26+97);
+			var dd = String.fromCharCode(ss);
+		
+			str += (parseInt(Math.random()*10)||dd);
+	}
+}
+rand(4);
+document.write(str);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
