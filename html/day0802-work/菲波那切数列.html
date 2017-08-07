@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+//	//111111111菲波那切数列--求和
+//	var f = function(n){
+//		if (n==1) {
+//			return 1;
+//		} 
+//			return n*f(n-1);
+//	}
+//	alert(f(5));
+//	
+//	
+//	//====222222222==================			
+//	function f(n) {
+//		if (n==1) {
+//			return 1;
+//		} else{
+//			return n*f(n-1);
+//		}
+//	}
+//	
+//	alert(f(5));
+//		
+
+	
+	// 斐波那契数列
+   // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233，377，610，987，1597，2584，4181，6765，10946，17711，28657，46368。
+
+	var f1=1,f2=1,f3;
+	f3=f2+f1;
+	
+	var n =	prompt("输入一个数n：");
+	function f(n) {
+		if (n==1 || n==2) {
+			return 1;
+		} else{
+			return f(n-1)+f(n-2);
+		}
+	}
+	document.write(f(n));
+	
+	
+</script>

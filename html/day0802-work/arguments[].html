@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	//arguments[];数组、存着外部传入额参数
+	
+	function shou(num1,num2){
+		alert(arguments[0]+"\n"+arguments[1]+"\n"+arguments[2]+"\n"+arguments[3]);
+		//alert(arguments.length);
+	}
+	
+	shou(2,9,20,2);
+
+	var  shou1 = function(){
+		alert(arguments[0]);
+	}
+	shou1(100,300);
+			
+	//arguments.length 计算数组的长度（用在数组长度不确定的时候；）
+	
+	var sum1=0;
+	function sum(){
+			for(var i=0;i<=arguments.length-1;i++){
+				sum1 += arguments[i];
+			}
+			alert(sum1);
+	}
+	sum(1,2,3,4,5,6,7,8,9,10);
+	
+</script>

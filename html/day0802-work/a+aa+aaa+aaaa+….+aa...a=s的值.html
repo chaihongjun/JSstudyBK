@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//111111111=============
+	// 5.求a+aa+aaa+aaaa+….+aa...a=s的值，其中a是一个数字。例如2+22+222+2222
+	// 2 22 222  2222
+	var a = parseInt(prompt("请输入一个a："));
+	var n = parseInt(prompt("请输入次数n："));
+	var sum=0, tmp=0;
+	
+	// 1 n ++ //例如：a=2、n=5; 结果为：2+22+222+2222+22222=24690
+	 	
+	for(var i=1; i<=n; i++) {
+		tmp = tmp*10 + a;
+		sum += tmp;
+		if(i==n) {
+			document.write(tmp)
+		} else {
+			document.write(tmp+"+")
+		}
+	}
+	document.write("="+sum);
+	
+	//====2222==================================
+//	var a = parseInt(prompt("请输入一个数字a："));
+//	var n = parseInt(prompt("请输入次数n："));
+//	
+//	var temp=0;
+//	var sum=0;
+//	for (var i=1;i<=n;i++) {
+//		temp=temp*10+a;
+//		sum=sum+temp;
+//		if (i==1) {
+//			document.write(temp);
+//		} else{
+//			document.write("+"+temp);
+//		}
+//	}
+//	document.write("="+sum);
+		
+</script>
