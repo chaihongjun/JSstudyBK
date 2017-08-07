@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset=UTF-8 />
+		<title>一行文字的左右滚动</title>
+		<style type="text/css">
+
+		</style>
+		<script>
+			var create = function(x, y, text) {
+				var marquee = document.createElement('marquee');
+				marquee.style.position = 'absolute';
+				marquee.style.left = x + 'px';
+				marquee.style.top = y + 'px';
+				marquee.style.width = "300px";
+				marquee.style.height = "30px";
+				marquee.style.lineHeight = "30px";
+				marquee.style.background = "red";
+				marquee.innerText = text;
+				document.body.appendChild(marquee);
+			}
+
+			window.onload = function() {
+				create(100, 100, "我是好人！！！！");
+			}
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

@@ -7,7 +7,6 @@
 		#mm{width: 200px;height: 150px;margin: 60px auto;border: 1px solid #ccc}
 	</style>
 	<script type="text/javascript" src="../js/main.js" ></script>
-	
 	<script>
 	/*
 		function setCookie(_name, _value, _date){
@@ -28,12 +27,10 @@
 		}
 	*/
 	
-	
 		window.onload=function(){	
 			document.getElementById("btn").onclick=function(){
 				var strName=document.getElementById("uName").value;
 				var strPass=document.getElementById("uPass").value;
-				
 				
 				if(getCookie("user_"+encodeURIComponent(strName))!=""){
 					alert("注册失败，用户名已被占用");
@@ -41,7 +38,6 @@
 					setCookie("user_"+encodeURIComponent(strName), strPass, 3650);
 					alert("注册成功");
 				}
-				
 			}
 			
 			document.getElementById("btn2").onclick=function(){
@@ -57,21 +53,14 @@
 				}
 			}
 		}
-		
-		
-		
-		
 	</script>
 	</head>
 	<body>
-	
 		<div id="mm">
 			用户名：<input type="text" value="" id="uName" /><br>
 			密码：<input type="text" value="" id="uPass" /><br>
 			<input type="button" value="注册" id="btn" />
 			<input type="button" value="登陆" id="btn2" />
 		</div>
-		
-	
 	</body>
 </html>

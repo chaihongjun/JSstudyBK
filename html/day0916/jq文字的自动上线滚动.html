@@ -2,9 +2,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>滚动</title>
+		<title>文字的自动上线滚动</title>
 		<style>
-			 #callboard { height:30px; line-height:30px; overflow:hidden;border: 1px solid #ccc;}
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul li{
+				list-style: none;
+			}
+			 #callboard { height:30px; line-height:30px; overflow:hidden;border: 1px solid #ccc;font-size: 16px;}
 			 #callboard ul { padding:0;}
 			 #callboard li { padding:0;}
 		</style>
@@ -26,6 +33,7 @@
 		<script>
 			 //第二版：Newton改造
 			 (function (win){
+			 	
 			      var callboarTimer;
 			      var callboard = $('#callboard');
 			      var callboardUl = callboard.find('ul');
@@ -52,6 +60,7 @@
 			         }).mouseleave(function (){
 			             callboarTimer = setTimeout(win.autoAnimation, 2000);
 			         });
+			         
 			 }(window));
 			 
 			 setTimeout(window.autoAnimation, 2000);

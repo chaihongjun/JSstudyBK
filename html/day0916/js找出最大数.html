@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>找出最大数</title>
+		<script>
+			//111不循环实现的方法
+			var numbers = [13,1349,1123,2022,124];
+			numbers.sort(function(a,b){return b - a});
+			console.log(numbers[0]);   //2022
+			
+			//222循环实现的方法
+			var numbers = [30,3420,230,220,1240];
+			var max = 0;
+			for(var i=0;i<numbers.length;i++){
+			  if(numbers[i] > max){
+			    max = numbers[i];
+			  }
+			}
+			console.log(max);   //3420
+			
+			
+			//333更简单的写法
+			var str = Math.max(132,1243,35,26,4633,74); // returns 4633
+			console.log(str);
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

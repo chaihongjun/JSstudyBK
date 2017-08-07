@@ -1,0 +1,67 @@
+<html>
+
+	<head>
+		<meta charset="gb2312">
+		<title>jq柱状条</title>
+		<style type="text/css">
+			.container {
+				width: 20px;
+				height: 50px;
+				border: 1px solid #999;
+				font-size: 10px;
+				float: left;
+				margin-left: 5px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var i = 1;
+				$('#top').height(8);
+				$('#buttom').css('marginTop', 42);
+				$('#buttom').css('background', '#d6d6d6');
+				interid = setInterval(Showgao, 0);
+
+				function Showgao() {
+					var oldH = $('#buttom').css('marginTop');
+					var h = oldH.substr(0, oldH.indexOf('px'));
+					$('#buttom').css('marginTop', h - 1);
+					$('#buttom').height(i);
+					i++;
+					if(i == 43) {
+						clearInterval(interid);
+					}
+				}
+
+				var i1 = 1;
+				$('#top1').height(4);
+				$('#buttom1').css('marginTop', 46);
+				$('#buttom1').css('background', 'red');
+				interid1 = setInterval(Showgao1, 1);
+
+				function Showgao1() {
+					var oldH = $('#buttom1').css('marginTop');
+					var h = oldH.substr(0, oldH.indexOf('px'));
+					$('#buttom1').css('marginTop', h - 1);
+					$('#buttom1').height(i1);
+					i1++;
+					if(i1 == 30) {
+						clearInterval(interid1);
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="top">82%</div>
+			<div id="buttom"></div>
+		</div>
+		<div class="container">
+			<div id="top1">62%</div>
+			<div id="buttom1"></div>
+		</div>
+	</body>
+
+</html>
