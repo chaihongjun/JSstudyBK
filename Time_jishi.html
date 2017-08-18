@@ -1,0 +1,77 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>作业秒表</title>
+
+	<script type="text/javascript">
+
+
+		//1.显示当前时间（*年*月*日  星期*  *：*：*）
+		/*
+		function showTime (date) {
+			var year = date.getFullYear(); //年
+			var month = date.getMonth() + 1; //月
+			var day = date.getDate(); //日
+			var week = date.getDay(); //星期
+			if (week == 0) { 
+				week = "日";
+			}
+			var hours = date.getHours(); //时
+			var min = date.getMinutes(); //分
+			var sec = date.getSeconds(); //秒
+
+			document.write(year + "年" + month + "月" + day + "日" + " 星期" + week + " " + hours + ":" + min + ":" + sec);
+		}
+		var now = new Date();
+		showTime(now);
+		*/
+
+		//2,实现秒表功能，有开始计时，结束计时。
+		 var timer;
+		 //封装函数,计时
+		 function showTime(){
+		 	var hours = document.getElementById("box_hours");
+		 	var min = document.getElementById("box_min");
+		 	var sec = document.getElementById("box_sec");
+		 	var ssec = document.getElementById("box_ssec");
+		 	var i = 0;
+		 	timer = setInterval(function(){
+		 		i++;
+		 		//修改页面上显示的时分秒的值innerHTML
+		 		ssec.innerHTML = i % 10;
+		 		sec.innerHTML = tool(parseInt(i / 10) % 60);
+		 		min.innerHTML = tool(parseInt(i / 600) % 60);
+		 		hours.innerHTML = tool(parseInt(i / 36000)%24);
+		 	}, 100);
+		 }
+		 function tool(num){
+		 	if(num < 10){
+		 		return "0" + num;
+		 	}
+		 	return num;
+		 }
+
+
+		 //点击开始计时
+		 function startClick() {
+		 	showTime();	
+		 }
+
+		 //点击结束计时
+		 function stopClick() {
+		 	clearInterval(timer);
+		 }
+
+	</script>
+
+</head>
+<body>
+		<span id = "box_hours">00</span>时
+		<span id = "box_min">00</span>分
+		<span id = "box_sec">00</span>秒
+		<span id = "box_ssec">0</span>
+		<button onClick = "startClick()">开始计时</button>
+		<button onClick = "stopClick()">结束计时</button>
+
+</body>
+</html>

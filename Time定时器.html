@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<title></title>
+	<style type="text/css">
+
+
+	</style>
+</head>
+<body>
+     <span id = "hrous">00</span>:<span id = "min">00</span>:<span id = sec>00</span> <br/>
+     <button id = "btn">开始计时</button>
+     <button id = "btn1">记录时间</button>
+     <button id = "btn2">清零</button>
+     <div id = "div"></div>  
+
+     <script type="text/javascript">
+        var btn = document.getElementById("btn");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var div  = document.getElementById("div");
+     	var hrous = document.getElementById("hrous");
+     	var min   = document.getElementById("min");
+     	var sec  = document.getElementById("sec");
+     	var tag = null;
+     	var isrunning =false;
+     	var i  = 0; 
+        var num = 0;
+     	btn.onclick = function(){
+     		//开启定时器
+     		if(isrunning == false){
+     		isrunning = true;
+     		tag = setInterval(function(){
+     	
+     		i++;
+     		hrous.innerHTML = getNum(parseInt(i / 3600 ) % 24);
+     		min.innerHTML  = getNum( parseInt(i /60 ) % 60);
+     		sec.innerHTML = getNum( parseInt ( i % 60));
+     		btn.innerHTML = "暂停计时";
+     		
+     	},100)} else{
+     			//关闭定时器
+     		    if(isrunning == true){
+     			clearInterval(tag);
+     			isrunning = false;
+     			btn.innerHTML = "开始计时";
+     			}
+     		}
+     	}
+     
+        btn1.onclick = function(){
+            num ++;
+        	div.innerHTML += "第" + num + "名的时间是" + hrous.innerHTML + ":" + min.innerHTML + ":" + sec.innerHTML + "<br />";
+        }
+        
+        // 清零
+        btn2.onclick = function(){
+        	clearInterval(tag);
+        	i = 0 ;
+        	isrunning = false;
+        	btn.innerHTML = "开始计时";
+        	hrous.innerHTML = "00";
+        	min.innerHTML = "00";
+        	sec.innerHTML = "00";
+        	div.innerHTML = null;
+            num = 0;
+        }
+
+          function getNum(num){
+          	 if(num < 10){
+          	 	return "0" + num ;
+          	 }else{
+          	 	return num ;
+          	 }
+          }
+     </script> 
+</body>
+</html>
